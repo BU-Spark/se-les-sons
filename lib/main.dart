@@ -1,347 +1,225 @@
 import 'package:flutter/material.dart';
+import "package:myapp/Homepage.dart";
 
 void main() {
   runApp(MaterialApp(
-    title: 'Navigation Basics',
-    home: FirstRoute(),
+    title: 'Les Sons',
+    home: Homepage(),
     theme: ThemeData(
       colorScheme: ColorScheme.fromSwatch(
         primarySwatch: Colors.grey,
       ),
+      appBarTheme: const AppBarTheme(
+        color: Colors.white,
+      )
     ),
   ));
 }
 
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Row(children: <Widget>[
-            Builder(
-              builder: (context) => IconButton(
-                  icon: Icon(Icons.menu_rounded),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  }),
-            ),
-            Expanded(child: Text("")),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: Builder(
-                builder: (context) => IconButton(
-                    icon: Icon(Icons.arrow_back_ios_rounded),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FirstRoute()),
-                      );
-                    }),
-              ),
-            ),
-            Builder(
-              builder: (context) => IconButton(
-                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SecondRoute()),
-                    );
-                  }),
-            ),
-          ])),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "An Introduction to the French Pronounciation",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                Text(""),
-                Text(
-                  """This first part focusses on the letters of the alphabet. It is overall a first step to get you “in the door” of the world of the French sounds. We need a starting point to begin this journey.
- 
-Don’t worry if at first you are not completely comfortable with pronouncing these first sounds, or if you feel surrounded by doubt, not knowing if you are pronouncing them the right or the wrong way. 
-
-Each one of these sounds will be studied again and in more depth in the third part of this book. Then, doubt will vanish and give way to confidence!
- 
-You will soon realize that the main difficulty is not to learn and memorize a “new” sound. Instead the problem at first is to accept the fact that a letter whose sound is completely known to you in English, happens to have a very different sound in French. This means that you have to “battle” your own reflexes and open your mind to a different culture. Learning to adopt a “bilingual attitude” is one of the first skills you develop when studying a foreign language.
- 
-There is also another trap to avoid: don’t be obsessed by the quest for the perfect sound; it does not exist!
-
-Similarly to English that takes a different accent whether it is spoken in England, Ireland, Scotland or in the United States, French also has a different accent whether it is spoken in France, Belgium, Canada or Senegal. Within France, there are also differences of accents between the different regions and even between people from the same city! It is more a matter of being in the “ballpark” of a sound. The main goal is to have a nice, clear and understandable accent.
-
-Moreover your pronunciation will constantly improve and “fine tune” itself with time and practice. Therefore, be patient and let time perform its miracles!\n\n\n""",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class MyDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: [
-          CustomListTile(
-              Icons.book, "1a. An introduction to the French \n pronounciation",
-              () {
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const FirstRoute()),
-            );
-          }, "Reading - 5 min"),
-          CustomListTile(Icons.book, "1b. The French Name of Each Letter", () {
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SecondRoute()),
-            );
-          }, "Reading - 5 min"),
-          CustomListTile(Icons.record_voice_over_rounded,
-              "1c. Practicing the Alphabet", () {}, "Exercise - 15 min"),
-          CustomListTile(Icons.book, "1d. Vowels and Consonants", () {},
-              "Reading - 2 min"),
-          CustomListTile(Icons.record_voice_over_rounded,
-              "1e. Practicing the Alphabet", () {}, "Exercise - 15 min"),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomListTile extends StatelessWidget {
-  IconData icon;
-  String text;
-  VoidCallback onTap;
-  String time;
-
-  CustomListTile(this.icon, this.text, this.onTap, this.time);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-      child: Container(
-        decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(color: Colors.grey.shade400))),
-        child: InkWell(
-          onTap: onTap,
-          child: Container(
-            height: 65,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Row(children: <Widget>[
-                  Icon(icon),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(text),
-                          Text(time),
-                        ]),
-                  ),
-                ]),
-                Icon(Icons.arrow_right_rounded)
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Row(children: <Widget>[
-            Builder(
-              builder: (context) => IconButton(
-                  icon: Icon(Icons.menu_rounded),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  }),
-            ),
-            Expanded(child: Text("")),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: Builder(
-                builder: (context) => IconButton(
-                    icon: Icon(Icons.arrow_back_ios_rounded),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FirstRoute()),
-                      );
-                    }),
-              ),
-            ),
-            Builder(
-              builder: (context) => IconButton(
-                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ThirdRoute()),
-                    );
-                  }),
-            ),
-          ])),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                RichText(
-                  // ignore: prefer_const_constructors
-                  text: TextSpan(
-                    text: "The French Name of Each Letter" '\n\n',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24),
-                    children: const <TextSpan>[
-                      TextSpan(
-                          text:
-                              """ The alphabet consists in listing all the letters contained in a language and giving each one a name. The name of a letter does not always correspond to the sound of that letter. For example in English, the letter “W” is named “double u” but its sound is different: when you pronounce the word “wash” you don’t say “double u ash”! 
-
-The purpose of knowing the French alphabet is to be able to spell a word in French or to understand the spelling of a word in French. Even though English and French alphabets have the same 26 letters, these 26 “signs” don’t have the same names in English and in French; they are the same graphic signs but they are assigned different sound. 
-
-If you spell a word to a French person and you use the English names of the letters, this person will not understand your spelling. Vice versa if you don’t know the French names of the letters, you won’t be able to understand when a French person spells a word in French.
-
-Therefore you must know the “French name” given to each letter of the alphabet. 
-IMPORTANT NOTE: Try to stay open minded by “accepting” that some letters have a very different sound whether you read them in English or in French. Don’t be trapped by your own English reflexes.
-
-If at first, you don’t feel very comfortable with the sound of some of the letters, don’t worry. In the section about all the French sounds, we will study in details the sound for each one of these letters.
-
-You can only learn through doing and you have to start somewhere! Look at the following exercise as your first opportunity to acquire a """,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w400)),
-                      TextSpan(
-                          text: '"',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w400)),
-                      TextSpan(
-                          text: 'bilingual attitude',
-                          style: TextStyle(
-                              fontSize: 18,
-                              decoration: TextDecoration.underline)),
-                      TextSpan(
-                          text:
-                              """": \n\nFirst you will become aware of the fact that the same letter may have a different sound in French than in English.
-
-Then, each time you look at a letter, you will develop the ability to switch effortlessly between its English sound and its French sound. 
-
-Let’s learn now the “French names” for each one of the letters of the alphabet.\n\n\n""",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w400)),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ThirdRoute extends StatelessWidget {
-  const ThirdRoute({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: MyDrawer(),
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Row(children: <Widget>[
-            Builder(
-              builder: (context) => IconButton(
-                  icon: Icon(Icons.menu_rounded),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  }),
-            ),
-            Expanded(child: Text("")),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: Builder(
-                builder: (context) => IconButton(
-                    icon: Icon(Icons.arrow_back_ios_rounded),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SecondRoute()),
-                      );
-                    }),
-              ),
-            ),
-            Builder(
-              builder: (context) => IconButton(
-                  icon: Icon(Icons.arrow_forward_ios_rounded),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ThirdRoute()),
-                    );
-                  }),
-            ),
-          ])),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Practicing The Alphabet",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                Text(""),
-                Text(
-                    "Tap each letter to the French Pronunciation of the letter.",
-                    style: TextStyle(fontSize: 18))
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class FirstRoute extends StatelessWidget {
+//   const FirstRoute({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     // return Scaffold(
+//       // drawer: MyDrawer(),
+//       // appBar: AppBar(
+//       //     automaticallyImplyLeading: false,
+//       //     title: Row(
+//       //         children: <Widget>[
+//       //           Builder(
+//       //             builder: (context) => IconButton(
+//       //                 icon: Icon(Icons.menu_rounded),
+//       //                 onPressed: () {
+//       //                   Scaffold.of(context).openDrawer();
+//       //                 }
+//       //             ),),
+//       //           Expanded(child: Text("")),
+//       //           Padding(
+//       //             padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+//       //             child: Builder(
+//       //               builder: (context) => IconButton(
+//       //                   icon: Icon(Icons.arrow_back_ios_rounded),
+//       //                   onPressed: () {
+//       //                     Navigator.push(
+//       //                       context,
+//       //                       MaterialPageRoute(builder: (context) => const FirstRoute()),
+//       //                     );
+//       //                   }
+//       //               ),),
+//       //           ),
+//       //           Builder(
+//       //             builder: (context) => IconButton(
+//       //                 icon: Icon(Icons.arrow_forward_ios_rounded),
+//       //                 onPressed: () {
+//       //                   Navigator.push(
+//       //                     context,
+//       //                     MaterialPageRoute(builder: (context) => const SecondRoute()),
+//       //                   );
+//       //                 }
+//       //             ),),
+//       //         ]
+//       //     )
+//       // ),
+//       // body: SingleChildScrollView(
+//       //   child: Padding(
+//       //     padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+//       //     child: Container(
+//       //       child: Column(
+//       //         crossAxisAlignment: CrossAxisAlignment.start,
+//       //         children: const [
+//       //           Text("An Introduction to the French Pronounciation",
+//       //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
+//       //           Text(""),
+//       //           Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed imperdiet dolor, sit amet gravida augue. Vivamus eu orci nec mauris auctor accumsan at ac nulla. Sed scelerisque eleifend risus, sit amet bibendum metus gravida eget. Duis sit amet nisi sed nibh pellentesque rhoncus eu id augue. Sed accumsan arcu ac ante elementum, non ullamcorper lectus laoreet. Cras ac nunc sit amet arcu vestibulum pellentesque. Donec aliquam ac ligula ac imperdiet. Fusce ut semper lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin vitae magna finibus, lobortis massa id, faucibus quam. Fusce felis ex, laoreet et auctor sed, volutpat non neque.Phasellus sed neque libero. Morbi eget nunc nec nulla tristique porta quis at urna. Sed eu neque malesuada, imperdiet velit at, commodo neque. Sed malesuada felis ut diam pretium, et fringilla ipsum eleifend. Sed malesuada metus ut lectus maximus dictum. Nulla facilisi. Nunc nulla arcu, luctus eu tortor vel, aliquet accumsan ipsum. Sed finibus ipsum sit amet neque aliquet, ut dapibus elit egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sed consectetur nisl. Nullam ut suscipit nisi, vel congue mauris. Maecenas facilisis molestie ante. Aenean eu volutpat augue, sit amet dignissim justo.Duis fringilla justo sed libero luctus venenatis et eu massa. Maecenas ornare ex vel ornare fermentum. Nam suscipit, massa sed ornare accumsan, sem velit tincidunt metus, blandit feugiat massa enim sit amet dolor. Vestibulum sit amet vehicula sem. Fusce quis pellentesque erat. Integer congue mi eu lorem dapibus, id tristique enim lobortis. Donec hendrerit id libero sit amet mattis. Fusce bibendum, magna non luctus hendrerit, diam erat tempus augue, ac ullamcorper erat purus ac dui. Nullam commodo urna turpis, eu dapibus turpis vehicula scelerisque.Donec pretium ultricies augue, gravida dignissim neque scelerisque sed. Curabitur id eleifend elit. Donec quis finibus leo, sit amet aliquet massa. Cras finibus pretium cursus. Etiam maximus ipsum neque, nec tempus sem convallis vitae. Aenean non suscipit sapien, quis rhoncus est. Morbi id nisi in orci luctus dapibus. Curabitur feugiat fermentum mi, a dictum arcu dapibus a. Aenean aliquet justo vel felis elementum venenatis. Proin at eros vitae nisi placerat hendrerit. Proin dictum vulputate felis. Duis mauris arcu, condimentum sit amet malesuada sit amet, hendrerit id quam. Quisque fringilla facilisis pharetra.Proin et enim arcu. Nunc efficitur, nulla ac mollis faucibus, neque neque congue lorem, quis vehicula dolor nisl vitae erat. Vivamus tempus sapien ut ligula efficitur, nec pellentesque velit euismod. Donec ut semper augue. Integer placerat metus eget aliquam egestas. Nullam tincidunt sem nec nunc pellentesque volutpat. Sed non congue ipsum. Aenean erat nunc, tristique ac sodales ut, dapibus sit amet turpis. Integer porta consequat ligula. Nunc sollicitudin, neque eu viverra tincidunt, eros lacus interdum dui, sed feugiat ex justo a dui. Pellentesque eu ligula lacinia, ultricies nibh ut, dictum sem. Quisque euismod posuere quam, et laoreet leo convallis at. Donec posuere eget diam et lobortis. Fusce congue sagittis tristique.\n\n\n",
+//       //             style: TextStyle(fontSize: 18),),
+//       //         ],
+//       //       ),
+//       //     ),
+//       //   ),
+//       // ),
+//     // );
+//   }
+// // }
+//
+// class MyDrawer extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Drawer(
+//       child: ListView(
+//         children: [
+//           CustomListTile(Icons.book, "1a. An introduction to the French \n pronounciation", () {
+//             Navigator.pop(context);
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => const Homepage()),
+//             );}, "Reading - 5 min"),
+//           CustomListTile(Icons.book, "1b. The French Name of Each Letter", () {
+//             Navigator.pop(context);
+//             Navigator.push(
+//               context,
+//               MaterialPageRoute(builder: (context) => const SecondRoute()),
+//             );}, "Reading - 5 min"),
+//           CustomListTile(Icons.record_voice_over_rounded, "1c. Practicing the Alphabet", () {}, "Exercise - 15 min"),
+//           CustomListTile(Icons.book, "1d. Vowels and Consonants", () {}, "Reading - 2 min"),
+//           CustomListTile(Icons.record_voice_over_rounded, "1e. Practicing the Alphabet", () {}, "Exercise - 15 min"),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+// class CustomListTile extends StatelessWidget{
+//
+//   IconData icon;
+//   String text;
+//   VoidCallback onTap;
+//   String time;
+//
+//   CustomListTile(this.icon, this.text, this.onTap, this.time);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+//       child: Container(
+//         decoration: BoxDecoration(
+//           border: Border(bottom: BorderSide(color: Colors.grey.shade400))
+//         ),
+//         child: InkWell(
+//           onTap: onTap,
+//           child: Container(
+//             height: 65,
+//             child: Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: <Widget>[
+//                 Row(
+//                   children: <Widget>[
+//                     Icon(icon),
+//                     Padding(
+//                       padding: const EdgeInsets.all(8),
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
+//                         children:[
+//                           Text(text),
+//                           Text(time),
+//                         ]
+//                       ),
+//                     ),
+//                   ]
+//                 ),
+//                 Icon(Icons.arrow_right_rounded)
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// class SecondRoute extends StatelessWidget {
+//   const SecondRoute({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       drawer: MyDrawer(),
+//       appBar: AppBar(
+//           automaticallyImplyLeading: false,
+//           title: Row(
+//               children: <Widget>[
+//                 Builder(
+//                   builder: (context) => IconButton(
+//                       icon: Icon(Icons.menu_rounded),
+//                       onPressed: () {
+//                         Scaffold.of(context).openDrawer();
+//                       }
+//                   ),),
+//                 Expanded(child: Text("")),
+//                 Padding(
+//                   padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+//                   child: Builder(
+//                     builder: (context) => IconButton(
+//                         icon: Icon(Icons.arrow_back_ios_rounded),
+//                         onPressed: () {
+//                           Navigator.push(
+//                             context,
+//                             MaterialPageRoute(builder: (context) => const Homepage()),
+//                           );
+//                         }
+//                     ),),
+//                 ),
+//                 Builder(
+//                   builder: (context) => IconButton(
+//                       icon: Icon(Icons.arrow_forward_ios_rounded),
+//                       onPressed: () {
+//                         Navigator.push(
+//                           context,
+//                           MaterialPageRoute(builder: (context) => const SecondRoute()),
+//                         );
+//                       }
+//                   ),),
+//               ]
+//           )
+//       ),
+//       body: SingleChildScrollView(
+//         child: Padding(
+//           padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+//           child: Container(
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: const [
+//                 Text("The French Name of Each Letter",
+//                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
+//                 Text(""),
+//                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed imperdiet dolor, sit amet gravida augue. Vivamus eu orci nec mauris auctor accumsan at ac nulla. Sed scelerisque eleifend risus, sit amet bibendum metus gravida eget. Duis sit amet nisi sed nibh pellentesque rhoncus eu id augue. Sed accumsan arcu ac ante elementum, non ullamcorper lectus laoreet. Cras ac nunc sit amet arcu vestibulum pellentesque. Donec aliquam ac ligula ac imperdiet. Fusce ut semper lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin vitae magna finibus, lobortis massa id, faucibus quam. Fusce felis ex, laoreet et auctor sed, volutpat non neque.Phasellus sed neque libero. Morbi eget nunc nec nulla tristique porta quis at urna. Sed eu neque malesuada, imperdiet velit at, commodo neque. Sed malesuada felis ut diam pretium, et fringilla ipsum eleifend. Sed malesuada metus ut lectus maximus dictum. Nulla facilisi. Nunc nulla arcu, luctus eu tortor vel, aliquet accumsan ipsum. Sed finibus ipsum sit amet neque aliquet, ut dapibus elit egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur sed consectetur nisl. Nullam ut suscipit nisi, vel congue mauris. Maecenas facilisis molestie ante. Aenean eu volutpat augue, sit amet dignissim justo.Duis fringilla justo sed libero luctus venenatis et eu massa. Maecenas ornare ex vel ornare fermentum. Nam suscipit, massa sed ornare accumsan, sem velit tincidunt metus, blandit feugiat massa enim sit amet dolor. Vestibulum sit amet vehicula sem. Fusce quis pellentesque erat. Integer congue mi eu lorem dapibus, id tristique enim lobortis. Donec hendrerit id libero sit amet mattis. Fusce bibendum, magna non luctus hendrerit, diam erat tempus augue, ac ullamcorper erat purus ac dui. Nullam commodo urna turpis, eu dapibus turpis vehicula scelerisque.Donec pretium ultricies augue, gravida dignissim neque scelerisque sed. Curabitur id eleifend elit. Donec quis finibus leo, sit amet aliquet massa. Cras finibus pretium cursus. Etiam maximus ipsum neque, nec tempus sem convallis vitae. Aenean non suscipit sapien, quis rhoncus est. Morbi id nisi in orci luctus dapibus. Curabitur feugiat fermentum mi, a dictum arcu dapibus a. Aenean aliquet justo vel felis elementum venenatis. Proin at eros vitae nisi placerat hendrerit. Proin dictum vulputate felis. Duis mauris arcu, condimentum sit amet malesuada sit amet, hendrerit id quam. Quisque fringilla facilisis pharetra.Proin et enim arcu. Nunc efficitur, nulla ac mollis faucibus, neque neque congue lorem, quis vehicula dolor nisl vitae erat. Vivamus tempus sapien ut ligula efficitur, nec pellentesque velit euismod. Donec ut semper augue. Integer placerat metus eget aliquam egestas. Nullam tincidunt sem nec nunc pellentesque volutpat. Sed non congue ipsum. Aenean erat nunc, tristique ac sodales ut, dapibus sit amet turpis. Integer porta consequat ligula. Nunc sollicitudin, neque eu viverra tincidunt, eros lacus interdum dui, sed feugiat ex justo a dui. Pellentesque eu ligula lacinia, ultricies nibh ut, dictum sem. Quisque euismod posuere quam, et laoreet leo convallis at. Donec posuere eget diam et lobortis. Fusce congue sagittis tristique.\n\n\n",
+//                   style: TextStyle(fontSize: 18),),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
