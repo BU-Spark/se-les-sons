@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:myapp/carousel.dart';
 
 class FirstRoute extends StatelessWidget {
   const FirstRoute({Key? key}) : super(key: key);
@@ -190,8 +191,7 @@ class SecondRoute extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => ThirdRoute()),
+                      MaterialPageRoute(builder: (context) => ThirdRoute()),
                     );
                   }),
             ),
@@ -259,11 +259,32 @@ class ThirdRoute extends StatelessWidget {
   ThirdRoute({Key? key}) : super(key: key);
 
   List carousel = [
-    CarouselLetter("A"),CarouselLetter("B"),CarouselLetter("C"),CarouselLetter("D"),CarouselLetter("E"), CarouselLetter("F"),
-    CarouselLetter("G"),CarouselLetter("H"),CarouselLetter("I"),CarouselLetter("J"),CarouselLetter("K"),CarouselLetter("L"),
-    CarouselLetter("M"),CarouselLetter("N"),CarouselLetter("O"),CarouselLetter("P"),CarouselLetter("Q"),CarouselLetter("R"),
-    CarouselLetter("S"),CarouselLetter("T"),CarouselLetter("U"),CarouselLetter("V"),CarouselLetter("W"),CarouselLetter("X"),
-    CarouselLetter("Y"),CarouselLetter("Z"),
+    CarouselLetter("A"),
+    CarouselLetter("B"),
+    CarouselLetter("C"),
+    CarouselLetter("D"),
+    CarouselLetter("E"),
+    CarouselLetter("F"),
+    CarouselLetter("G"),
+    CarouselLetter("H"),
+    CarouselLetter("I"),
+    CarouselLetter("J"),
+    CarouselLetter("K"),
+    CarouselLetter("L"),
+    CarouselLetter("M"),
+    CarouselLetter("N"),
+    CarouselLetter("O"),
+    CarouselLetter("P"),
+    CarouselLetter("Q"),
+    CarouselLetter("R"),
+    CarouselLetter("S"),
+    CarouselLetter("T"),
+    CarouselLetter("U"),
+    CarouselLetter("V"),
+    CarouselLetter("W"),
+    CarouselLetter("X"),
+    CarouselLetter("Y"),
+    CarouselLetter("Z"),
   ];
 
   @override
@@ -303,8 +324,7 @@ class ThirdRoute extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => ThirdRoute()),
+                      MaterialPageRoute(builder: (context) => ThirdRoute()),
                     );
                   }),
             ),
@@ -318,7 +338,8 @@ class ThirdRoute extends StatelessWidget {
               children: [
                 const Text(
                   "Practicing The Alphabet",
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
                 const Text(
@@ -326,15 +347,15 @@ class ThirdRoute extends StatelessWidget {
                     style: TextStyle(fontSize: 18)),
                 const SizedBox(height: 18),
                 CarouselSlider.builder(
-                  options: CarouselOptions(height:154, pageSnapping: false, viewportFraction: .42),
+                  options: CarouselOptions(
+                      height: 154, pageSnapping: false, viewportFraction: .42),
                   itemCount: carousel.length,
                   itemBuilder: (context, index, realIndex) {
                     return buildLetter(carousel[index], index);
                   },
                 ),
                 const SizedBox(height: 18),
-                const Text(
-                    "Swipe left to record each letter!",
+                const Text("Swipe left to record each letter!",
                     style: TextStyle(fontSize: 18)),
               ],
             ),
@@ -345,33 +366,35 @@ class ThirdRoute extends StatelessWidget {
   }
 
   Widget buildLetter(carousel, int index) => Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: Container(
-      width: double.infinity,
-      child: carousel,
-    ),
-  );
-}
-
-class CarouselLetter extends StatelessWidget {
-  String letter;
-
-  CarouselLetter(this.letter);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      color: const Color(0xff006cff),
-      child: SizedBox(
-        child: Center(
-          child: Text(letter, textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white, fontFamily: 'Helvetica',
-                fontWeight: FontWeight.w700, fontSize: 80),),
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: double.infinity,
+          child: carousel,
         ),
-      ),
-    );
-  }
+      );
 }
+
+
+// Carousel Slider 
+// class CarouselLetter extends StatelessWidget {
+//   String letter;
+
+//   CarouselLetter(this.letter);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(10),
+//       ),
+//       color: const Color(0xff006cff),
+//       child: SizedBox(
+//         child: Center(
+//           child: Text(letter, textAlign: TextAlign.center,
+//             style: const TextStyle(color: Colors.white, fontFamily: 'Helvetica',
+//                 fontWeight: FontWeight.w700, fontSize: 80),),
+//         ),
+//       ),
+//     );
+//   }
+// }
