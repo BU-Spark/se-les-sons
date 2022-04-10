@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+// To build the letters in the carousel slider
+
 class CarouselLetter extends StatelessWidget {
   String letter;
 

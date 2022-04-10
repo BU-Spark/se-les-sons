@@ -4,6 +4,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:myapp/carousel.dart';
 
+// This file contains the lessons that fall under part 1 (we are in the process of buiding part 1 so some parts to not lead anywhere yet)
+
 class FirstRoute extends StatelessWidget {
   const FirstRoute({Key? key}) : super(key: key);
 
@@ -67,40 +69,6 @@ Moreover your pronunciation will constantly improve and “fine tune” itself w
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class MyDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: [
-          CustomListTile(
-              Icons.book, "1a. An introduction to the French \n pronounciation",
-              () {
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const FirstRoute()),
-            );
-          }, "Reading - 5 min"),
-          CustomListTile(Icons.book, "1b. The French Name of Each Letter", () {
-            Navigator.pop(context);
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SecondRoute()),
-            );
-          }, "Reading - 5 min"),
-          CustomListTile(Icons.record_voice_over_rounded,
-              "1c. Practicing the Alphabet", () {}, "Exercise - 15 min"),
-          CustomListTile(Icons.book, "1d. Vowels and Consonants", () {},
-              "Reading - 2 min"),
-          CustomListTile(Icons.record_voice_over_rounded,
-              "1e. Practicing the Alphabet", () {}, "Exercise - 15 min"),
-        ],
       ),
     );
   }
@@ -324,7 +292,9 @@ class ThirdRoute extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ThirdRoute()),
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ThirdRoute()), // Will change to FourthRoute when that page is made
                     );
                   }),
             ),
@@ -343,10 +313,11 @@ class ThirdRoute extends StatelessWidget {
                 ),
                 const Text(""),
                 const Text(
-                    "Tap each letter to the French Pronunciation of the letter.",
+                    "Tap each letter to the French Pronunciation of the letter.", // To DO: Implemented the audio files
                     style: TextStyle(fontSize: 18)),
                 const SizedBox(height: 18),
                 CarouselSlider.builder(
+                  // To be parsed out
                   options: CarouselOptions(
                       height: 154, pageSnapping: false, viewportFraction: .42),
                   itemCount: carousel.length,
@@ -355,7 +326,8 @@ class ThirdRoute extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 18),
-                const Text("Swipe left to record each letter!",
+                const Text(
+                    "Swipe left to record each letter!", // To Do: Make page to record letters, right not cannot swipe left
                     style: TextStyle(fontSize: 18)),
               ],
             ),
@@ -373,28 +345,3 @@ class ThirdRoute extends StatelessWidget {
         ),
       );
 }
-
-
-// Carousel Slider 
-// class CarouselLetter extends StatelessWidget {
-//   String letter;
-
-//   CarouselLetter(this.letter);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Card(
-//       shape: RoundedRectangleBorder(
-//         borderRadius: BorderRadius.circular(10),
-//       ),
-//       color: const Color(0xff006cff),
-//       child: SizedBox(
-//         child: Center(
-//           child: Text(letter, textAlign: TextAlign.center,
-//             style: const TextStyle(color: Colors.white, fontFamily: 'Helvetica',
-//                 fontWeight: FontWeight.w700, fontSize: 80),),
-//         ),
-//       ),
-//     );
-//   }
-// }

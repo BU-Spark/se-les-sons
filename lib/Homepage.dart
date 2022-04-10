@@ -46,6 +46,9 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
                 height: MediaQuery.of(context).size.width / 12,
                 child: const Tab(text: "Part 1"),
               ),
+
+              // Currently only working on Part 1, so the rest of the parts will be empty pages right now
+
               Container(
                 decoration: HomeTab(_selectedIndex, 1),
                 width: MediaQuery.of(context).size.width / 3,
@@ -121,7 +124,9 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5),
         ),
-        color: currentTab == tab ? const Color(0xff006cff) : const Color(0xff4e4e4e));
+        color: currentTab == tab
+            ? const Color(0xff006cff)
+            : const Color(0xff4e4e4e));
   }
 }
 
@@ -135,7 +140,8 @@ class Homepage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          shape: const Border(bottom: const BorderSide(color: Color(0xffc7c7cc))),
+          shape:
+              const Border(bottom: const BorderSide(color: Color(0xffc7c7cc))),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
@@ -160,11 +166,11 @@ class Homepage extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black))),
               Tab(
-                  child: Text("Table of\nContents",
+                  child: Text("Table of\nContents", // Nothing here yet
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black))),
               Tab(
-                  child: Text("Profile",
+                  child: Text("Profile", // Nothing here yet
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.black))),
             ],
@@ -215,7 +221,7 @@ class Part_1 extends StatelessWidget {
                             fontSize: 9),
                       ),
                       Text(
-                        "This first part focusses on the letters of the alphabet. It is overall a first step to get you “in  the door” of the world of the French sounds. We need a starting point to begin this  journey. Don’t worry if at first you are not completely comfortable with pronouncing these first  sounds, we will continue to improve!",
+                        "This first part focusses on the letters of the alphabet. It is overall a first step to get you “in  the door” of the world of the French sounds. We need a starting point to begin this  journey. Don’t worry if at first you are not completely comfortable with pronouncing these first sounds, we will continue to improve!",
                         style: TextStyle(
                             fontFamily: 'Arial',
                             fontWeight: FontWeight.w400,
@@ -242,30 +248,63 @@ class Part_1 extends StatelessWidget {
                           fontSize: 17),
                     ),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.book, "An Introduction to the French Pronunciation","Reading - 10 min", ()
-                    {Navigator.push(context, MaterialPageRoute(builder: (context) => const FirstRoute()),); }),
+                    CustomCard(
+                        Icons.book,
+                        "An Introduction to the French Pronunciation",
+                        "Reading - 10 min", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FirstRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.book, "The French Name of each Letter","Reading - 10 min", ()
-                    {Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondRoute()),); }),
+                    CustomCard(Icons.book, "The French Name of each Letter",
+                        "Reading - 10 min", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SecondRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Practicing the French Alphabet","Exercise - 15 min", ()
-                    {Navigator.push(context, MaterialPageRoute(builder: (context) => ThirdRoute()),); }),
+                    CustomCard(
+                        // In middle of building out this section
+                        Icons.record_voice_over_rounded,
+                        "Practicing the French Alphabet",
+                        "Exercise - 15 min", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ThirdRoute()),
+                      );
+                    }),
+
+                    // Did not get up to building out these sections yet so they do not lead to any pages yet
+
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Difficult Letters","Exercise - 5 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Difficult Letters", "Exercise - 5 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Spelling your Name","Exercise - 5 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Spelling your Name", "Exercise - 5 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Spelling your Street","Exercise - 5 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Spelling your Street", "Exercise - 5 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Spelling French Words","Exercise - 10 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Spelling French Words", "Exercise - 10 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.book, "Vowels and Consonants","Reading - 2 min", () { }),
+                    CustomCard(Icons.book, "Vowels and Consonants",
+                        "Reading - 2 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Practicing Vowels","Exercise - 5 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Practicing Vowels", "Exercise - 5 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Practicing Consonants","Exercise - 10 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Practicing Consonants", "Exercise - 10 min", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Vowel A and I","Exercise - 10 min", () { }),
+                    CustomCard(Icons.record_voice_over_rounded, "Vowel A and I",
+                        "Exercise - 10 min", () {}),
                   ],
                 ),
               ),
