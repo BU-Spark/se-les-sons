@@ -86,7 +86,7 @@ Verify if the file was pushed by checking it on GitHub web page. Click on the ba
 
 To access the app to download onto an android device use this [link](https://drive.google.com/drive/folders/1FhflO38qpi3iNnggRRZZ9pDE8jXqYN7l?usp=sharing). 
 
-To download: Download a file that works for your android device. Note: These APK files will only work on a device with a 64 bit architecture as per Google PlayStore 64 bit requirement. 
+To download: Go into settings and allow apps from Unknown Sources (this may be different depending on phone manufacturer). Download a file from the drive that works for your android device. Note: These APK files will only work on a device with a 64 bit architecture as per Google PlayStore 64 bit requirement. 
 
 Or you can follow these steps to install the APK on a connected Android device.
 
