@@ -63,7 +63,7 @@ git fetch upstream
 
 Pick commits from upstream 
 ```
-git rebase upstream/main
+git rebase upstream/dev
 ```
 
 Add the file(s) to stage for git to track 
