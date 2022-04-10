@@ -82,7 +82,7 @@ git push origin dev
 
 Verify if the file was pushed by checking it on GitHub web page. Click on the banner that is on top of the screen and create a pull request. 
 
-## Download to an android Device
+## Download (Build) to an Android Device
 
 To access the app to download onto an android device use this [link](https://drive.google.com/drive/folders/1FhflO38qpi3iNnggRRZZ9pDE8jXqYN7l?usp=sharing). 
 
@@ -97,3 +97,7 @@ Connect your Android device to your computer with a USB cable.
 Enter `cd se-les-sons`.
 
 Run `flutter install`.
+
+## Security Issues
+
+As of right now our greatest secutrity concern is authentication/authorization. However since the log in has not yet been implemented security features have not been added as well. 
