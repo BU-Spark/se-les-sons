@@ -293,8 +293,7 @@ class ThirdRoute extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              ThirdRoute()), // Will change to FourthRoute when that page is made
+                          builder: (context) => const FourthRoute()),
                     );
                   }),
             ),
@@ -344,4 +343,185 @@ class ThirdRoute extends StatelessWidget {
           child: carousel,
         ),
       );
+}
+
+class FourthRoute extends StatelessWidget {
+  const FourthRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(children: <Widget>[
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.close_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }),
+            ),
+            const Expanded(child: Text("")),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+              child: Builder(
+                builder: (context) => IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_rounded),
+                    splashRadius: 20,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ThirdRoute()),
+                      );
+                    }),
+              ),
+            ),
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const FourthRoute()), // Will change to FourthRoute when that page is made
+                    );
+                  }),
+            ),
+          ])),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Difficult Letters",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 24),
+                ),
+                const Text(""),
+                const Text(
+                    "There are 2 particular letters that can be confusing between English and French. Let’s practice them! \n ",
+                    style: TextStyle(fontSize: 18)),
+                const Text(
+                  "E and I",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 24),
+                ),
+                const Text(""),
+                const Text(
+                    "The French pronunciaiton of “I” is very similar to the English pronunciation of ‘E’. Click each letter to listen to the the following French pronunciations of ‘E’ and ‘I’. \n",
+                    style: TextStyle(fontSize: 18)),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xff006cff),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: SizedBox(
+                          width: 150,
+                          height: 154,
+                          child: Center(
+                            child: Text(
+                              'I',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 80),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xff006cff),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: SizedBox(
+                          width: 150,
+                          height: 154,
+                          child: Center(
+                            child: Text(
+                              'E',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 80),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
+                const Text(
+                  " \n G and J",
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 24),
+                ),
+                const Text(""),
+                const Text(
+                    "The French pronunciaiton of “G” is very similar to the English pronunciation of ‘J’. Click each letter to listen to the the following French pronunciations of ‘G’ and ‘J’. \n",
+                    style: TextStyle(fontSize: 18)),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xff006cff),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: SizedBox(
+                          width: 150,
+                          height: 154,
+                          child: Center(
+                            child: Text(
+                              'G',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 80),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xff006cff),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: SizedBox(
+                          width: 150,
+                          height: 154,
+                          child: Center(
+                            child: Text(
+                              'J',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Helvetica',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 80),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ]),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

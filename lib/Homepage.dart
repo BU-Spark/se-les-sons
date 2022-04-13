@@ -221,7 +221,7 @@ class Part_1 extends StatelessWidget {
                             fontSize: 9),
                       ),
                       Text(
-                        "This first part focusses on the letters of the alphabet. It is overall a first step to get you “in  the door” of the world of the French sounds. We need a starting point to begin this  journey. Don’t worry if at first you are not completely comfortable with pronouncing these first sounds, we will continue to improve!",
+                        "This first part focusses on the letters of the alphabet. It is overall a first step to get you “in the door” of the world of the French sounds. We need a starting point to begin this  journey. Don’t worry if at first you are not completely comfortable with pronouncing these first sounds, we will continue to improve!",
                         style: TextStyle(
                             fontFamily: 'Arial',
                             fontWeight: FontWeight.w400,
@@ -249,9 +249,9 @@ class Part_1 extends StatelessWidget {
                     ),
                     const SizedBox(height: 9),
                     CustomCard(
-                        Icons.book,
+                        Icons.menu_book_rounded,
                         "An Introduction to the French Pronunciation",
-                        "Reading - 10 min", () {
+                        "Reading", () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -259,8 +259,8 @@ class Part_1 extends StatelessWidget {
                       );
                     }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.book, "The French Name of each Letter",
-                        "Reading - 10 min", () {
+                    CustomCard(Icons.menu_book_rounded,
+                        "The French Name of each Letter", "Reading", () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -272,7 +272,7 @@ class Part_1 extends StatelessWidget {
                         // In middle of building out this section
                         Icons.record_voice_over_rounded,
                         "Practicing the French Alphabet",
-                        "Exercise - 15 min", () {
+                        "Exercise", () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => ThirdRoute()),
@@ -283,28 +283,33 @@ class Part_1 extends StatelessWidget {
 
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Difficult Letters", "Exercise - 5 min", () {}),
+                        "Difficult Letters", "Exercise", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FourthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling your Name", "Exercise - 5 min", () {}),
+                        "Spelling your Name", "Exercise ", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling your Street", "Exercise - 5 min", () {}),
+                        "Spelling your Street", "Exercise ", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling French Words", "Exercise - 10 min", () {}),
+                        "Spelling French Words", "Exercise ", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.book, "Vowels and Consonants",
-                        "Reading - 2 min", () {}),
-                    const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Vowels", "Exercise - 5 min", () {}),
+                    CustomCard(Icons.menu_book_rounded, "Vowels and Consonants",
+                        "Reading ", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Consonants", "Exercise - 10 min", () {}),
+                        "Practicing Vowels", "Exercise ", () {}),
+                    const SizedBox(height: 9),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Practicing Consonants", "Exercise ", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded, "Vowel A and I",
-                        "Exercise - 10 min", () {}),
+                        "Exercise ", () {}),
                   ],
                 ),
               ),
