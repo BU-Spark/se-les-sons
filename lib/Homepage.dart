@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import "package:myapp/lessons_1.dart";
+import "package:myapp/Table_of_Contents.dart";
 
+/*The contents of the first tab of Homepage, 'Home'. The reason it is Stateful
+ * is to create a custom indicator for the scrollable parts tab, as well as when
+ * the tab isn't clicked on. Otherwise, the default tab indicator will not work as
+ * intended, as shown in the figma.
+ */
 class HomeTabs extends StatefulWidget {
   const HomeTabs({Key? key}) : super(key: key);
   @override
@@ -10,7 +16,7 @@ class HomeTabs extends StatefulWidget {
 class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
   late TabController _controller;
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 0; //to remember which Part tab 1 -10 we've clicked
 
   @override
   void initState() {
@@ -105,6 +111,7 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
             ]),
       ),
       body: TabBarView(controller: _controller, children: [
+        //Only part 1 has been implemented but the other parts can be implemented the same way
         Part_1(),
         const Icon(Icons.book),
         const Icon(Icons.book),
@@ -119,6 +126,7 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
     );
   }
 
+  //Custom tab look for Parts 1-10 tabs, changes color depending if it is clicked or not
   HomeTab(int currentTab, int tab) {
     return ShapeDecoration(
         shape: RoundedRectangleBorder(
@@ -176,10 +184,10 @@ class Homepage extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             HomeTabs(),
-            Icon(Icons.book),
+            TablOfContents(),
             Icon(Icons.person),
           ],
         ),
@@ -221,7 +229,7 @@ class Part_1 extends StatelessWidget {
                             fontSize: 9),
                       ),
                       Text(
-                        "This first part focusses on the letters of the alphabet. It is overall a first step to get you “in the door” of the world of the French sounds. We need a starting point to begin this  journey. Don’t worry if at first you are not completely comfortable with pronouncing these first sounds, we will continue to improve!",
+                        "This first part focuses on the letters of the alphabet. It is overall a first step to get you “in  the door” of the world of the French sounds. We need a starting point to begin this  journey. Don’t worry if at first you are not completely comfortable with pronouncing these first sounds, we will continue to improve!",
                         style: TextStyle(
                             fontFamily: 'Arial',
                             fontWeight: FontWeight.w400,
@@ -248,10 +256,8 @@ class Part_1 extends StatelessWidget {
                           fontSize: 17),
                     ),
                     const SizedBox(height: 9),
-                    CustomCard(
-                        Icons.menu_book_rounded,
-                        "An Introduction to the French Pronunciation",
-                        "Reading", () {
+                    CustomCard(Icons.book,
+                        "An Introduction to the French Pronunciation", () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -259,8 +265,8 @@ class Part_1 extends StatelessWidget {
                       );
                     }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.menu_book_rounded,
-                        "The French Name of each Letter", "Reading", () {
+                    CustomCard(Icons.book, "The French Name of each Letter",
+                        () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -271,8 +277,7 @@ class Part_1 extends StatelessWidget {
                     CustomCard(
                         // In middle of building out this section
                         Icons.record_voice_over_rounded,
-                        "Practicing the French Alphabet",
-                        "Exercise", () {
+                        "Practicing the French Alphabet", () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => ThirdRoute()),
@@ -282,8 +287,9 @@ class Part_1 extends StatelessWidget {
                     // Did not get up to building out these sections yet so they do not lead to any pages yet
 
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Difficult Letters", "Exercise", () {
+                    CustomCard(
+                        Icons.record_voice_over_rounded, "Difficult Letters",
+                        () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => FourthRoute()),
@@ -291,25 +297,24 @@ class Part_1 extends StatelessWidget {
                     }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling your Name", "Exercise ", () {}),
+                        "Spelling your Name", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling your Street", "Exercise ", () {}),
+                        "Spelling your Street", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling French Words", "Exercise ", () {}),
+                        "Spelling French Words", () {}),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.menu_book_rounded, "Vowels and Consonants",
-                        "Reading ", () {}),
-                    const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Vowels", "Exercise ", () {}),
+                    CustomCard(Icons.book, "Vowels and Consonants", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Consonants", "Exercise ", () {}),
+                        "Practicing Vowels", () {}),
+                    const SizedBox(height: 9),
+                    CustomCard(Icons.record_voice_over_rounded,
+                        "Practicing Consonants", () {}),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded, "Vowel A and I",
-                        "Exercise ", () {}),
+                        () {}),
                   ],
                 ),
               ),
@@ -324,10 +329,9 @@ class Part_1 extends StatelessWidget {
 class CustomCard extends StatelessWidget {
   IconData icon;
   String text;
-  String time;
   VoidCallback onTap;
 
-  CustomCard(this.icon, this.text, this.time, this.onTap);
+  CustomCard(this.icon, this.text, this.onTap);
 
   @override
   Widget build(BuildContext context) {
@@ -350,7 +354,7 @@ class CustomCard extends StatelessWidget {
                       color: Colors.black,
                     )),
                 title: Text(
-                  text + "\n\n" + time,
+                  text,
                   style: const TextStyle(
                       color: Colors.white,
                       fontFamily: 'Arial',
