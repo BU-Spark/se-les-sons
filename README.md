@@ -37,7 +37,7 @@ i.e git remote add upstream git@github.com:BU-Spark/se-les-sons.git
 
 Check remote again `git remote -v`
 
- Now you should see two remotes, namely `upstream` and `origin`. Verify if the urls are corect. `upstream` should be our repo url. `origin` should be your repo url.
+ Now you should see two remotes, namely `upstream` and `origin`. Verify if the urls are correct. `upstream` should be our repo url. `origin` should be your repo url.
 
 Once you have the the upstream set up you are ready to start contributing!
 
@@ -100,4 +100,4 @@ Run `flutter install`.
 
 ## Security Issues
 
-As of right now our greatest secutrity concern is authentication/authorization. However since the log in has not yet been implemented security features have not been added as well. 
+As of right now our greatest security concern is authentication/authorization. However since the log in has not yet been implemented security features have not been added as well. 

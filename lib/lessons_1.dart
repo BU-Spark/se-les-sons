@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:infinite_carousel/infinite_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:myapp/carousel.dart';
@@ -223,37 +222,13 @@ Let’s learn now the “French names” for each one of the letters of the alph
   }
 }
 
-class ThirdRoute extends StatelessWidget {
-  ThirdRoute({Key? key}) : super(key: key);
+class ThirdRoute extends StatefulWidget {
+  @override
+  _ThirdRouteState createState() => _ThirdRouteState();
+}
 
-  List carousel = [
-    CarouselLetter("A"),
-    CarouselLetter("B"),
-    CarouselLetter("C"),
-    CarouselLetter("D"),
-    CarouselLetter("E"),
-    CarouselLetter("F"),
-    CarouselLetter("G"),
-    CarouselLetter("H"),
-    CarouselLetter("I"),
-    CarouselLetter("J"),
-    CarouselLetter("K"),
-    CarouselLetter("L"),
-    CarouselLetter("M"),
-    CarouselLetter("N"),
-    CarouselLetter("O"),
-    CarouselLetter("P"),
-    CarouselLetter("Q"),
-    CarouselLetter("R"),
-    CarouselLetter("S"),
-    CarouselLetter("T"),
-    CarouselLetter("U"),
-    CarouselLetter("V"),
-    CarouselLetter("W"),
-    CarouselLetter("X"),
-    CarouselLetter("Y"),
-    CarouselLetter("Z"),
-  ];
+class _ThirdRouteState extends State<ThirdRoute> {
+  final controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -298,38 +273,82 @@ class ThirdRoute extends StatelessWidget {
                   }),
             ),
           ])),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Practicing The Alphabet",
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                const Text(""),
-                const Text(
-                    "Tap each letter to the French Pronunciation of the letter.", // To DO: Implemented the audio files
-                    style: TextStyle(fontSize: 18)),
-                const SizedBox(height: 18),
-                CarouselSlider.builder(
-                  // To be parsed out
-                  options: CarouselOptions(
-                      height: 154, pageSnapping: false, viewportFraction: .42),
-                  itemCount: carousel.length,
-                  itemBuilder: (context, index, realIndex) {
-                    return buildLetter(carousel[index], index);
-                  },
-                ),
-                const SizedBox(height: 18),
-                const Text(
-                    "Swipe left to record each letter!", // To Do: Make page to record letters, right not cannot swipe left
-                    style: TextStyle(fontSize: 18)),
-              ],
-            ),
+      body: PageView(
+        controller: controller,
+        scrollDirection: Axis.horizontal,
+        children: [
+          ThirdRoutePage1(),
+          ThirdRoutePage2(),
+        ],
+      ),
+    );
+  }
+}
+
+class ThirdRoutePage1 extends StatelessWidget {
+  ThirdRoutePage1({Key? key}) : super(key: key);
+
+  List carousel = [
+    CarouselLetter("A", "alphabet/a.m4a"),
+    CarouselLetter("B", "alphabet/b.m4a"),
+    CarouselLetter("C", "alphabet/c.m4a"),
+    CarouselLetter("D", "alphabet/d.m4a"),
+    CarouselLetter("E", "alphabet/e.m4a"),
+    CarouselLetter("F", "alphabet/f.m4a"),
+    CarouselLetter("G", "alphabet/g.m4a"),
+    CarouselLetter("H", "alphabet/h.m4a"),
+    CarouselLetter("I", "alphabet/i.m4a"),
+    CarouselLetter("J", "alphabet/j.m4a"),
+    CarouselLetter("K", "alphabet/k.m4a"),
+    CarouselLetter("L", "alphabet/l.m4a"),
+    CarouselLetter("M", "alphabet/m.m4a"),
+    CarouselLetter("N", "alphabet/n.m4a"),
+    CarouselLetter("O", "alphabet/o.m4a"),
+    CarouselLetter("P", "alphabet/p.m4a"),
+    CarouselLetter("Q", "alphabet/q.m4a"),
+    CarouselLetter("R", "alphabet/r.m4a"),
+    CarouselLetter("S", "alphabet/s.m4a"),
+    CarouselLetter("T", "alphabet/t.m4a"),
+    CarouselLetter("U", "alphabet/u.m4a"),
+    CarouselLetter("V", "alphabet/v.m4a"),
+    CarouselLetter("W", "alphabet/w.m4a"),
+    CarouselLetter("X", "alphabet/x.m4a"),
+    CarouselLetter("Y", "alphabet/y.m4a"),
+    CarouselLetter("Z", "alphabet/z.m4a"),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Practicing The Alphabet",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              const Text(""),
+              const Text(
+                  "Tap each letter to the French Pronunciation of the letter.", // To DO: Implemented the audio files
+                  style: TextStyle(fontSize: 18)),
+              const SizedBox(height: 18),
+              CarouselSlider.builder(
+                // To be parsed out
+                options: CarouselOptions(
+                    height: 154, pageSnapping: false, viewportFraction: .42),
+                itemCount: carousel.length,
+                itemBuilder: (context, index, realIndex) {
+                  return buildLetter(carousel[index], index);
+                },
+              ),
+              const SizedBox(height: 18),
+              const Text(
+                  "Swipe left to record each letter!", // To Do: Make page to record letters, right not cannot swipe left
+                  style: TextStyle(fontSize: 18)),
+            ],
           ),
         ),
       ),
@@ -400,7 +419,7 @@ class FourthRoute extends StatelessWidget {
               children: [
                 const Text(
                   "Difficult Letters",
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
@@ -409,7 +428,7 @@ class FourthRoute extends StatelessWidget {
                     style: TextStyle(fontSize: 18)),
                 const Text(
                   "E and I",
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
@@ -424,14 +443,14 @@ class FourthRoute extends StatelessWidget {
                           color: const Color(0xff006cff),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SizedBox(
+                        child: const SizedBox(
                           width: 150,
                           height: 154,
                           child: Center(
                             child: Text(
                               'I',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'Helvetica',
                                   fontWeight: FontWeight.w700,
@@ -445,14 +464,14 @@ class FourthRoute extends StatelessWidget {
                           color: const Color(0xff006cff),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SizedBox(
+                        child: const SizedBox(
                           width: 150,
                           height: 154,
                           child: Center(
                             child: Text(
                               'E',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'Helvetica',
                                   fontWeight: FontWeight.w700,
@@ -464,7 +483,7 @@ class FourthRoute extends StatelessWidget {
                     ]),
                 const Text(
                   " \n G and J",
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
@@ -479,14 +498,14 @@ class FourthRoute extends StatelessWidget {
                           color: const Color(0xff006cff),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SizedBox(
+                        child: const SizedBox(
                           width: 150,
                           height: 154,
                           child: Center(
                             child: Text(
                               'G',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'Helvetica',
                                   fontWeight: FontWeight.w700,
@@ -500,14 +519,14 @@ class FourthRoute extends StatelessWidget {
                           color: const Color(0xff006cff),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: SizedBox(
+                        child: const SizedBox(
                           width: 150,
                           height: 154,
                           child: Center(
                             child: Text(
                               'J',
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontFamily: 'Helvetica',
                                   fontWeight: FontWeight.w700,
@@ -519,6 +538,34 @@ class FourthRoute extends StatelessWidget {
                     ]),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ThirdRoutePage2 extends StatelessWidget {
+  ThirdRoutePage2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "Recordings",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              Text(""),
+              Text(
+                  "Tap the record button to start a voice memo.", // To DO: Implemented the audio files
+                  style: TextStyle(fontSize: 18)),
+            ],
           ),
         ),
       ),
