@@ -41,6 +41,9 @@ dependencies:
 
   audioplayers: ^0.20.1
 
+  expansion_tile_card:
+    path: ./expansion_tile_card-2.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +70,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/alphabet/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
