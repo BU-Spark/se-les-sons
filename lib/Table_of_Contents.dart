@@ -58,6 +58,15 @@ class _TableOfContentsState extends State<TablOfContents> {
                 MaterialPageRoute(builder: (context) => ThirdRoute()),
               );
             }),
+            CustomCard(
+              // In middle of building out this section
+                Icons.record_voice_over_rounded,
+                "Difficult Letters", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FourthRoute()),
+              );
+            }),
           ],
         ),
       ),

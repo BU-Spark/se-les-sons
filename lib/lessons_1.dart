@@ -268,7 +268,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const FourthRoute()),
+                          builder: (context) => FourthRoute()),
                     );
                   }),
             ),
@@ -364,8 +364,38 @@ class ThirdRoutePage1 extends StatelessWidget {
       );
 }
 
+class ThirdRoutePage2 extends StatelessWidget {
+  ThirdRoutePage2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "Recordings",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              Text(""),
+              Text(
+                  "Tap the record button to start a voice memo.", // To DO: Implemented the audio files
+                  style: TextStyle(fontSize: 18)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class FourthRoute extends StatelessWidget {
-  const FourthRoute({Key? key}) : super(key: key);
+  FourthRoute({Key? key}) : super(key: key);
+
+  AudioCache audioPlayer = AudioCache();
 
   @override
   Widget build(BuildContext context) {
@@ -405,22 +435,21 @@ class FourthRoute extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              const FourthRoute()), // Will change to FourthRoute when that page is made
+                              FourthRoute()), // Will change to FifthRoute when that page is made
                     );
                   }),
             ),
           ])),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+          padding: const EdgeInsets.fromLTRB(12, 15, 12, 70),
           child: Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
                   "Difficult Letters",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 24),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
                 const Text(
@@ -428,8 +457,7 @@ class FourthRoute extends StatelessWidget {
                     style: TextStyle(fontSize: 18)),
                 const Text(
                   "E and I",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 24),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
                 const Text(
@@ -438,44 +466,54 @@ class FourthRoute extends StatelessWidget {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xff006cff),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const SizedBox(
-                          width: 150,
-                          height: 154,
-                          child: Center(
-                            child: Text(
-                              'I',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Helvetica',
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 80),
+                      InkWell(
+                        onTap: () async {
+                          audioPlayer.play("alphabet/i.m4a");
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xff006cff),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const SizedBox(
+                            width: 150,
+                            height: 154,
+                            child: Center(
+                              child: Text(
+                                'I',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Helvetica',
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 80),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xff006cff),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const SizedBox(
-                          width: 150,
-                          height: 154,
-                          child: Center(
-                            child: Text(
-                              'E',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Helvetica',
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 80),
+                      InkWell(
+                        onTap: () async {
+                          audioPlayer.play("alphabet/e.m4a");
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xff006cff),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const SizedBox(
+                            width: 150,
+                            height: 154,
+                            child: Center(
+                              child: Text(
+                                'E',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Helvetica',
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 80),
+                              ),
                             ),
                           ),
                         ),
@@ -483,54 +521,63 @@ class FourthRoute extends StatelessWidget {
                     ]),
                 const Text(
                   " \n G and J",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 24),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 ),
                 const Text(""),
                 const Text(
-                    "The French pronunciaiton of “G” is very similar to the English pronunciation of ‘J’. Click each letter to listen to the the following French pronunciations of ‘G’ and ‘J’. \n",
+                    "The French pronunciation of “G” is very similar to the English pronunciation of ‘J’. Click each letter to listen to the the following French pronunciations of ‘G’ and ‘J’. \n",
                     style: TextStyle(fontSize: 18)),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xff006cff),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const SizedBox(
-                          width: 150,
-                          height: 154,
-                          child: Center(
-                            child: Text(
-                              'G',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Helvetica',
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 80),
+                      InkWell(
+                        onTap: () async {
+                          audioPlayer.play("alphabet/g.m4a");
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xff006cff),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const SizedBox(
+                            width: 150,
+                            height: 154,
+                            child: Center(
+                              child: Text(
+                                'G',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Helvetica',
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 80),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xff006cff),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const SizedBox(
-                          width: 150,
-                          height: 154,
-                          child: Center(
-                            child: Text(
-                              'J',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Helvetica',
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 80),
+                      InkWell(
+                        onTap: () async {
+                          audioPlayer.play("alphabet/j.m4a");
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: const Color(0xff006cff),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: const SizedBox(
+                            width: 150,
+                            height: 154,
+                            child: Center(
+                              child: Text(
+                                'J',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontFamily: 'Helvetica',
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 80),
+                              ),
                             ),
                           ),
                         ),
@@ -538,34 +585,6 @@ class FourthRoute extends StatelessWidget {
                     ]),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ThirdRoutePage2 extends StatelessWidget {
-  ThirdRoutePage2({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "Recordings",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-              ),
-              Text(""),
-              Text(
-                  "Tap the record button to start a voice memo.", // To DO: Implemented the audio files
-                  style: TextStyle(fontSize: 18)),
-            ],
           ),
         ),
       ),

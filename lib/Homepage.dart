@@ -287,8 +287,14 @@ class Part_1 extends StatelessWidget {
                     // Did not get up to building out these sections yet so they do not lead to any pages yet
 
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Difficult Letters", () {}),
+                    CustomCard(
+                        Icons.record_voice_over_rounded, "Difficult Letters",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FourthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
                         "Spelling your Name", () {}),
