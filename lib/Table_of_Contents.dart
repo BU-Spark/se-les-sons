@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:myapp/lessons_1.dart";
 import "package:myapp/Homepage.dart";
+import "package:myapp/lessons_1_ recording_parts.dart";
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 
 class TablOfContents extends StatefulWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:myapp/lessons_1.dart";
+import "package:myapp/lessons_1_ recording_parts.dart";
 import "package:myapp/Table_of_Contents.dart";
 
 /*The contents of the first tab of Homepage, 'Home'. The reason it is Stateful
@@ -188,7 +189,24 @@ class Homepage extends StatelessWidget {
           children: [
             HomeTabs(),
             TablOfContents(),
-            Icon(Icons.person),
+            Center(
+              child: Container(
+                width: 28,
+                height: 28,
+                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(width: 2, color: Colors.black)),
+                child: Container(
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                    color: Color(0xffff7b66),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

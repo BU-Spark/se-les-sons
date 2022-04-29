@@ -41,6 +41,12 @@ dependencies:
 
   audioplayers: ^0.20.1
 
+#  flutter_sound_lite: ^8.5.0
+
+  flutter_sound: ^9.2.1
+
+  permission_handler: ^9.2.0
+
   expansion_tile_card:
     path: ./expansion_tile_card-2.0.0
   flutter_markdown: ^0.6.10
