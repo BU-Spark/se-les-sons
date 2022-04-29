@@ -296,16 +296,39 @@ class Part_1 extends StatelessWidget {
                       );
                     }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling your Name", () {}),
+                    CustomCard(
+                        Icons.record_voice_over_rounded, "Spelling your Name",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FifthRoute()),
+                      );
+                    }),
+                    const SizedBox(height: 9),
+                    CustomCard(
+                        Icons.record_voice_over_rounded, "Spelling your Street",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SixthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling your Street", () {}),
+                        "Spelling French Words", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SeventhRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Spelling French Words", () {}),
-                    const SizedBox(height: 9),
-                    CustomCard(Icons.book, "Vowels and Consonants", () {}),
+                    CustomCard(Icons.book, "Vowels and Consonants", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => EighthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
                         "Practicing Vowels", () {}),
