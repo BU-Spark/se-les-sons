@@ -43,6 +43,7 @@ dependencies:
 
   expansion_tile_card:
     path: ./expansion_tile_card-2.0.0
+  flutter_markdown: ^0.6.10
 
 dev_dependencies:
   flutter_test:
