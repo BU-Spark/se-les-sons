@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:myapp/lessons_1.dart";
+import "package:myapp/lessons_1_ recording_parts.dart";
 import "package:myapp/Table_of_Contents.dart";
 
 /*The contents of the first tab of Homepage, 'Home'. The reason it is Stateful
@@ -185,11 +186,7 @@ class Homepage extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [
-            HomeTabs(),
-            TablOfContents(),
-            Icon(Icons.person),
-          ],
+          children: [HomeTabs(), TablOfContents(), const Icon(Icons.person)],
         ),
       ),
     );
@@ -330,14 +327,31 @@ class Part_1 extends StatelessWidget {
                       );
                     }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Vowels", () {}),
+                    CustomCard(
+                        Icons.record_voice_over_rounded, "Practicing Vowels",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => NinthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Consonants", () {}),
+                        "Practicing Consonants", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TenthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Vowel A and I",
-                        () {}),
+                    CustomCard(Icons.record_voice_over_rounded, "Vowels A and I",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EleventhRoute()),
+                      );
+                    }),
                   ],
                 ),
               ),
@@ -359,6 +373,7 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 8,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: const Color(0xff006cff),
       child: InkWell(

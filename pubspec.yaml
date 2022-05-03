@@ -41,6 +41,12 @@ dependencies:
 
   audioplayers: ^0.20.1
 
+#  flutter_sound_lite: ^8.5.0
+
+  flutter_sound: ^9.2.1
+
+  permission_handler: ^9.2.0
+
   expansion_tile_card:
     path: ./expansion_tile_card-2.0.0
   flutter_markdown: ^0.6.10
@@ -73,6 +79,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/alphabet/
+    - assets/consonant+a/
+    - assets/consonant+i/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
