@@ -10,20 +10,6 @@ class TablOfContents extends StatefulWidget {
 }
 
 class _TableOfContentsState extends State<TablOfContents> {
-  // List<Widget> contentsList = [
-  //   CustomTableOfContentsCard("Part 1: Learning the French Alphabet", "p1"),
-  //   CustomTableOfContentsCard("Part 2: The Five Codes", "p2"),
-  //   CustomTableOfContentsCard("Part 3: Vowel Sounds and Spellings", "p3"),
-  //   CustomTableOfContentsCard(
-  //       "Part 4: Recapitulation of the 26 Vowel Blocks", "p4"),
-  //   CustomTableOfContentsCard("Part 5: The Consonant Sounds", "p5"),
-  //   CustomTableOfContentsCard("Part 6: The Letter R's Pronunciation", "p6"),
-  //   CustomTableOfContentsCard("Part 7: Three Other Cases", "p7"),
-  //   CustomTableOfContentsCard("Part 8: The Elision and the Liaison", "p8"),
-  //   CustomTableOfContentsCard(
-  //       "Part 9: Exceptions and Irregular Pronunciations", "p9"),
-  //   CustomTableOfContentsCard("Part 10: Useful Tourist's Phrases", "p10"),
-  // ];
   Card createCard(BuildContext context) {
     return Card(
       elevation: 8,
@@ -101,6 +87,33 @@ class _TableOfContentsState extends State<TablOfContents> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => EighthRoute()),
+              );
+            }),
+            CustomCard(
+              // In middle of building out this section
+                Icons.record_voice_over_rounded,
+                "Vowels and Consonants", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NinthRoute()),
+              );
+            }),
+            CustomCard(
+              // In middle of building out this section
+                Icons.record_voice_over_rounded,
+                "Vowels and Consonants", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TenthRoute()),
+              );
+            }),
+            CustomCard(
+              // In middle of building out this section
+                Icons.record_voice_over_rounded,
+                "Vowels and Consonants", () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EleventhRoute()),
               );
             }),
           ],

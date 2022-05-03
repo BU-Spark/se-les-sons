@@ -62,7 +62,9 @@ Each one of these sounds will be studied again and in more depth in the third pa
 You will soon realize that the main difficulty is not to learn and memorize a “new” sound. Instead the problem at first is to accept the fact that a letter whose sound is completely known to you in English, happens to have a very different sound in French. This means that you have to “battle” your own reflexes and open your mind to a different culture. Learning to adopt a “bilingual attitude” is one of the first skills you develop when studying a foreign language.
  
 There is also another trap to avoid: don’t be obsessed by the quest for the perfect sound; it does not exist!
+
 Similarly to English that takes a different accent whether it is spoken in England, Ireland, Scotland or in the United States, French also has a different accent whether it is spoken in France, Belgium, Canada or Senegal. Within France, there are also differences of accents between the different regions and even between people from the same city! It is more a matter of being in the “ballpark” of a sound. The main goal is to have a nice, clear and understandable accent.
+
 Moreover your pronunciation will constantly improve and “fine tune” itself with time and practice. Therefore, be patient and let time perform its miracles!\n\n\n""",
                   style: TextStyle(fontSize: 18),
                 ),
@@ -298,7 +300,7 @@ class FourthRoute extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () async {
-                          audioPlayer.play("alphabet/E.m4a");
+                          audioPlayer.play("alphabet/e.m4a");
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -324,7 +326,7 @@ class FourthRoute extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () async {
-                          audioPlayer.play("alphabet/I.m4a");
+                          audioPlayer.play("alphabet/i.m4a");
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -362,7 +364,7 @@ class FourthRoute extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () async {
-                          audioPlayer.play("alphabet/G.m4a");
+                          audioPlayer.play("alphabet/g.m4a");
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -388,7 +390,7 @@ class FourthRoute extends StatelessWidget {
                       ),
                       InkWell(
                         onTap: () async {
-                          audioPlayer.play("alphabet/J.m4a");
+                          audioPlayer.play("alphabet/j.m4a");
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -475,40 +477,9 @@ class _FifthRouteState extends State<FifthRoute> {
         controller: controller,
         scrollDirection: Axis.horizontal,
         children: [
-          const FifthRoutePage1(),
+          FifthRoutePage1(),
           FifthRoutePage2(),
         ],
-      ),
-    );
-  }
-}
-
-class FifthRoutePage1 extends StatelessWidget {
-  const FifthRoutePage1({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Spell Your Name",
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                const Text(""),
-                const Text(
-                    "Record yourself spelling your name using the French Alphabet. Swipe left to use to alphabet carousel for help!\n ",
-                    style: TextStyle(fontSize: 18)),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }
@@ -518,64 +489,74 @@ class FifthRoutePage2 extends StatelessWidget {
   FifthRoutePage2({Key? key}) : super(key: key);
 
   List carousel = [
-    CarouselLetter("A", "alphabet/A.m4a"),
-    CarouselLetter("B", "alphabet/B.m4a"),
-    CarouselLetter("C", "alphabet/C.m4a"),
-    CarouselLetter("D", "alphabet/D.m4a"),
-    CarouselLetter("E", "alphabet/E.m4a"),
-    CarouselLetter("F", "alphabet/F.m4a"),
-    CarouselLetter("G", "alphabet/G.m4a"),
-    CarouselLetter("H", "alphabet/H.m4a"),
-    CarouselLetter("I", "alphabet/I.m4a"),
-    CarouselLetter("J", "alphabet/J.m4a"),
-    CarouselLetter("K", "alphabet/K.m4a"),
-    CarouselLetter("L", "alphabet/L.m4a"),
-    CarouselLetter("M", "alphabet/M.m4a"),
-    CarouselLetter("N", "alphabet/N.m4a"),
-    CarouselLetter("O", "alphabet/O.m4a"),
-    CarouselLetter("P", "alphabet/P.m4a"),
-    CarouselLetter("Q", "alphabet/Q.m4a"),
-    CarouselLetter("R", "alphabet/R.m4a"),
-    CarouselLetter("S", "alphabet/S.m4a"),
-    CarouselLetter("T", "alphabet/T.m4a"),
-    CarouselLetter("U", "alphabet/U.m4a"),
-    CarouselLetter("V", "alphabet/V.m4a"),
-    CarouselLetter("W", "alphabet/W.m4a"),
-    CarouselLetter("X", "alphabet/X.m4a"),
-    CarouselLetter("Y", "alphabet/Y.m4a"),
-    CarouselLetter("Z", "alphabet/Z.m4a"),
+    CarouselLetter("A", "alphabet/a.m4a"),
+    CarouselLetter("B", "alphabet/b.m4a"),
+    CarouselLetter("C", "alphabet/c.m4a"),
+    CarouselLetter("D", "alphabet/d.m4a"),
+    CarouselLetter("E", "alphabet/e.m4a"),
+    CarouselLetter("F", "alphabet/f.m4a"),
+    CarouselLetter("G", "alphabet/g.m4a"),
+    CarouselLetter("H", "alphabet/h.m4a"),
+    CarouselLetter("I", "alphabet/i.m4a"),
+    CarouselLetter("J", "alphabet/j.m4a"),
+    CarouselLetter("K", "alphabet/k.m4a"),
+    CarouselLetter("L", "alphabet/l.m4a"),
+    CarouselLetter("M", "alphabet/m.m4a"),
+    CarouselLetter("N", "alphabet/n.m4a"),
+    CarouselLetter("O", "alphabet/o.m4a"),
+    CarouselLetter("P", "alphabet/p.m4a"),
+    CarouselLetter("Q", "alphabet/q.m4a"),
+    CarouselLetter("R", "alphabet/r.m4a"),
+    CarouselLetter("S", "alphabet/s.m4a"),
+    CarouselLetter("T", "alphabet/t.m4a"),
+    CarouselLetter("U", "alphabet/u.m4a"),
+    CarouselLetter("V", "alphabet/v.m4a"),
+    CarouselLetter("W", "alphabet/w.m4a"),
+    CarouselLetter("X", "alphabet/x.m4a"),
+    CarouselLetter("Y", "alphabet/y.m4a"),
+    CarouselLetter("Z", "alphabet/z.m4a"),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Alphabet Carousel",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-              ),
-              const Text(""),
-              const Text(
-                  "Tap each letter to hear the French Pronunciation of the letter.", // To DO: Implemented the audio files
-                  style: TextStyle(fontSize: 18)),
-              const SizedBox(height: 18),
-              CarouselSlider.builder(
-                // To be parsed out
-                options: CarouselOptions(
-                    height: 154, pageSnapping: false, viewportFraction: .42),
-                itemCount: carousel.length,
-                itemBuilder: (context, index, realIndex) {
-                  return buildLetter(carousel[index], index);
-                },
-              ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Alphabet Carousel",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          const Text(""),
+          const Text(
+              "Tap each letter to hear the French Pronunciation of the letter.", // To DO: Implemented the audio files
+              style: TextStyle(fontSize: 18)),
+          const SizedBox(height: 18),
+          CarouselSlider.builder(
+            // To be parsed out
+            options: CarouselOptions(
+                height: 154, pageSnapping: false, viewportFraction: .42),
+            itemCount: carousel.length,
+            itemBuilder: (context, index, realIndex) {
+              return buildLetter(carousel[index], index);
+            },
+          ),
+          const Expanded(child: Text("")),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xffC4C4C4),
+                size: 10,),
+              SizedBox(width: 12),
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xff4E4E4E),
+                size: 10,),
             ],
           ),
-        ),
+          const SizedBox(height: 15,)
+        ],
       ),
     );
   }
@@ -643,39 +624,9 @@ class _SixthRouteState extends State<SixthRoute> {
         controller: controller,
         scrollDirection: Axis.horizontal,
         children: [
-          const SixthRoutePage1(),
+          SixthRoutePage1(),
           SixthRoutePage2(),
         ],
-      ),
-    );
-  }
-}
-
-class SixthRoutePage1 extends StatelessWidget {
-  const SixthRoutePage1({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "Spell Your Street",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                Text(""),
-                Text(
-                    "Record yourself spelling your street address using the French Alphabet. Swipe left to use to alphabet carousel for help! \n ",
-                    style: TextStyle(fontSize: 18)),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }
@@ -685,64 +636,74 @@ class SixthRoutePage2 extends StatelessWidget {
   SixthRoutePage2({Key? key}) : super(key: key);
 
   List carousel = [
-    CarouselLetter("A", "alphabet/A.m4a"),
-    CarouselLetter("B", "alphabet/B.m4a"),
-    CarouselLetter("C", "alphabet/C.m4a"),
-    CarouselLetter("D", "alphabet/D.m4a"),
-    CarouselLetter("E", "alphabet/E.m4a"),
-    CarouselLetter("F", "alphabet/F.m4a"),
-    CarouselLetter("G", "alphabet/G.m4a"),
-    CarouselLetter("H", "alphabet/H.m4a"),
-    CarouselLetter("I", "alphabet/I.m4a"),
-    CarouselLetter("J", "alphabet/J.m4a"),
-    CarouselLetter("K", "alphabet/K.m4a"),
-    CarouselLetter("L", "alphabet/L.m4a"),
-    CarouselLetter("M", "alphabet/M.m4a"),
-    CarouselLetter("N", "alphabet/N.m4a"),
-    CarouselLetter("O", "alphabet/O.m4a"),
-    CarouselLetter("P", "alphabet/P.m4a"),
-    CarouselLetter("Q", "alphabet/Q.m4a"),
-    CarouselLetter("R", "alphabet/R.m4a"),
-    CarouselLetter("S", "alphabet/S.m4a"),
-    CarouselLetter("T", "alphabet/T.m4a"),
-    CarouselLetter("U", "alphabet/U.m4a"),
-    CarouselLetter("V", "alphabet/V.m4a"),
-    CarouselLetter("W", "alphabet/W.m4a"),
-    CarouselLetter("X", "alphabet/X.m4a"),
-    CarouselLetter("Y", "alphabet/Y.m4a"),
-    CarouselLetter("Z", "alphabet/Z.m4a"),
+    CarouselLetter("A", "alphabet/a.m4a"),
+    CarouselLetter("B", "alphabet/b.m4a"),
+    CarouselLetter("C", "alphabet/c.m4a"),
+    CarouselLetter("D", "alphabet/d.m4a"),
+    CarouselLetter("E", "alphabet/e.m4a"),
+    CarouselLetter("F", "alphabet/f.m4a"),
+    CarouselLetter("G", "alphabet/g.m4a"),
+    CarouselLetter("H", "alphabet/h.m4a"),
+    CarouselLetter("I", "alphabet/i.m4a"),
+    CarouselLetter("J", "alphabet/j.m4a"),
+    CarouselLetter("K", "alphabet/k.m4a"),
+    CarouselLetter("L", "alphabet/l.m4a"),
+    CarouselLetter("M", "alphabet/m.m4a"),
+    CarouselLetter("N", "alphabet/n.m4a"),
+    CarouselLetter("O", "alphabet/o.m4a"),
+    CarouselLetter("P", "alphabet/p.m4a"),
+    CarouselLetter("Q", "alphabet/q.m4a"),
+    CarouselLetter("R", "alphabet/r.m4a"),
+    CarouselLetter("S", "alphabet/s.m4a"),
+    CarouselLetter("T", "alphabet/t.m4a"),
+    CarouselLetter("U", "alphabet/u.m4a"),
+    CarouselLetter("V", "alphabet/v.m4a"),
+    CarouselLetter("W", "alphabet/w.m4a"),
+    CarouselLetter("X", "alphabet/x.m4a"),
+    CarouselLetter("Y", "alphabet/y.m4a"),
+    CarouselLetter("Z", "alphabet/z.m4a"),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Alphabet Carousel",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-              ),
-              const Text(""),
-              const Text(
-                  "Tap each letter to hear the French Pronunciation of the letter.", // To DO: Implemented the audio files
-                  style: TextStyle(fontSize: 18)),
-              const SizedBox(height: 18),
-              CarouselSlider.builder(
-                // To be parsed out
-                options: CarouselOptions(
-                    height: 154, pageSnapping: false, viewportFraction: .42),
-                itemCount: carousel.length,
-                itemBuilder: (context, index, realIndex) {
-                  return buildLetter(carousel[index], index);
-                },
-              ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Alphabet Carousel",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          const Text(""),
+          const Text(
+              "Tap each letter to hear the French Pronunciation of the letter.", // To DO: Implemented the audio files
+              style: TextStyle(fontSize: 18)),
+          const SizedBox(height: 18),
+          CarouselSlider.builder(
+            // To be parsed out
+            options: CarouselOptions(
+                height: 154, pageSnapping: false, viewportFraction: .42),
+            itemCount: carousel.length,
+            itemBuilder: (context, index, realIndex) {
+              return buildLetter(carousel[index], index);
+            },
+          ),
+          const Expanded(child: Text("")),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xffC4C4C4),
+                size: 10,),
+              SizedBox(width: 12),
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xff4E4E4E),
+                size: 10,),
             ],
           ),
-        ),
+          const SizedBox(height: 15,)
+        ],
       ),
     );
   }
@@ -871,7 +832,7 @@ class EighthRoute extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              EighthRoute()), //To Do change to nine when made
+                              NinthRoute()), //To Do change to nine when made
                     );
                   }),
             ),
@@ -890,17 +851,17 @@ class EighthRoute extends StatelessWidget {
                 const Text(
                     "The sounds in any language are divided into 2 categories: \n",
                     style: TextStyle(fontSize: 18)),
-                new ListTile(
+                ListTile(
                   dense: true,
                   horizontalTitleGap: .5,
                   leading: const Text("1. ", style: TextStyle(fontSize: 18)),
-                  title: new Text(list[0], style: TextStyle(fontSize: 18)),
+                  title: Text(list[0], style: TextStyle(fontSize: 18)),
                 ),
-                new ListTile(
+                ListTile(
                   dense: true,
                   horizontalTitleGap: 0.5,
                   leading: Text("2. ", style: TextStyle(fontSize: 18)),
-                  title: new Text(list[1], style: TextStyle(fontSize: 18)),
+                  title: Text(list[1], style: TextStyle(fontSize: 18)),
                 ),
               ],
             ),
@@ -909,4 +870,464 @@ class EighthRoute extends StatelessWidget {
       ),
     );
   }
+}
+
+class NinthRoute extends StatefulWidget {
+  @override
+  _NinthRouteState createState() => _NinthRouteState();
+}
+
+class _NinthRouteState extends State<NinthRoute> {
+  final controller = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(children: <Widget>[
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.close_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }),
+            ),
+            const Expanded(child: Text("")),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+              child: Builder(
+                builder: (context) => IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_rounded),
+                    splashRadius: 20,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EighthRoute()),
+                      );
+                    }),
+              ),
+            ),
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TenthRoute()),
+                    );
+                  }),
+            ),
+          ])),
+      body: PageView(
+        controller: controller,
+        scrollDirection: Axis.horizontal,
+        children: [
+          NinthRoutePage1(),
+          NinthRoutePage2(),
+        ],
+      ),
+    );
+  }
+}
+
+class NinthRoutePage1 extends StatelessWidget {
+  NinthRoutePage1({Key? key}) : super(key: key);
+
+  List carousel = [
+    CarouselLetter("A", "alphabet/a.m4a"),
+    CarouselLetter("E", "alphabet/e.m4a"),
+    CarouselLetter("I", "alphabet/i.m4a"),
+    CarouselLetter("O", "alphabet/o.m4a"),
+    CarouselLetter("U", "alphabet/u.m4a"),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Practicing Vowels",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          const Text(""),
+          const Text(
+              "Click each vowel to listen to its french pronunciation and swipe to record the pronunciation of each vowel.\n\n"
+                  "Notice again that the same vowel letters have a very different sound whether they are read in English or in French",
+              style: TextStyle(fontSize: 18)),
+          const SizedBox(height: 18),
+          CarouselSlider.builder(
+            // To be parsed out
+            options: CarouselOptions(
+                height: 154, pageSnapping: false, viewportFraction: .42),
+            itemCount: carousel.length,
+            itemBuilder: (context, index, realIndex) {
+              return buildLetter(carousel[index], index);
+            },
+          ),
+          const SizedBox(height: 18),
+          const Expanded(
+            child: Text(
+                "", // To Do: Make page to record letters, right not cannot swipe left
+                style: TextStyle(fontSize: 18)),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xff4E4E4E),
+                size: 10,),
+              SizedBox(width: 12),
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xffC4C4C4),
+                size: 10,),
+            ],
+          ),
+          const SizedBox(height: 15,)
+        ],
+      ),
+    );
+  }
+
+  Widget buildLetter(carousel, int index) => Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      width: double.infinity,
+      child: carousel,
+    ),
+  );
+}
+
+class TenthRoute extends StatefulWidget {
+  @override
+  _TenthRouteState createState() => _TenthRouteState();
+}
+
+class _TenthRouteState extends State<TenthRoute> {
+  final controller = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(children: <Widget>[
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.close_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }),
+            ),
+            const Expanded(child: Text("")),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+              child: Builder(
+                builder: (context) => IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_rounded),
+                    splashRadius: 20,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => NinthRoute()),
+                      );
+                    }),
+              ),
+            ),
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => EleventhRoute()),
+                    );
+                  }),
+            ),
+          ])),
+      body: PageView(
+        controller: controller,
+        scrollDirection: Axis.horizontal,
+        children: [
+          TenthRoutePage1(),
+          TenthRoutePage2(),
+        ],
+      ),
+    );
+  }
+}
+
+class TenthRoutePage1 extends StatelessWidget {
+  TenthRoutePage1({Key? key}) : super(key: key);
+
+  List carousel = [
+    CarouselLetter("B", "alphabet/b.m4a"),
+    CarouselLetter("C", "alphabet/c.m4a"),
+    CarouselLetter("D", "alphabet/d.m4a"),
+    CarouselLetter("F", "alphabet/f.m4a"),
+    CarouselLetter("G", "alphabet/g.m4a"),
+    CarouselLetter("H", "alphabet/h.m4a"),
+    CarouselLetter("J", "alphabet/j.m4a"),
+    CarouselLetter("K", "alphabet/k.m4a"),
+    CarouselLetter("L", "alphabet/l.m4a"),
+    CarouselLetter("M", "alphabet/m.m4a"),
+    CarouselLetter("N", "alphabet/n.m4a"),
+    CarouselLetter("P", "alphabet/p.m4a"),
+    CarouselLetter("Q", "alphabet/q.m4a"),
+    CarouselLetter("R", "alphabet/r.m4a"),
+    CarouselLetter("S", "alphabet/s.m4a"),
+    CarouselLetter("T", "alphabet/t.m4a"),
+    CarouselLetter("V", "alphabet/v.m4a"),
+    CarouselLetter("W", "alphabet/w.m4a"),
+    CarouselLetter("X", "alphabet/x.m4a"),
+    CarouselLetter("Y", "alphabet/y.m4a"),
+    CarouselLetter("Z", "alphabet/z.m4a"),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Practicing Consonants",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          const Text(""),
+          const Text(
+              "Click on each consonants to hear the french pronunciation of each consonant.\n\n"
+                  "Most of the consonants sounds are pronounced pronounced the same in English and in French. ",
+              style: TextStyle(fontSize: 18)),
+          const SizedBox(height: 18),
+          CarouselSlider.builder(
+            // To be parsed out
+            options: CarouselOptions(
+                height: 154, pageSnapping: false, viewportFraction: .42),
+            itemCount: carousel.length,
+            itemBuilder: (context, index, realIndex) {
+              return buildLetter(carousel[index], index);
+            },
+          ),
+          const SizedBox(height: 18),
+          const Expanded(
+            child: Text(
+                "", // To Do: Make page to record letters, right not cannot swipe left
+                style: TextStyle(fontSize: 18)),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xff4E4E4E),
+                size: 10,),
+              SizedBox(width: 12),
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xffC4C4C4),
+                size: 10,),
+            ],
+          ),
+          const SizedBox(height: 15,)
+        ],
+      ),
+    );
+  }
+
+  Widget buildLetter(carousel, int index) => Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      width: double.infinity,
+      child: carousel,
+    ),
+  );
+}
+
+class EleventhRoute extends StatefulWidget {
+  @override
+  _EleventhRouteState createState() => _EleventhRouteState();
+}
+
+class _EleventhRouteState extends State<EleventhRoute> {
+  final controller = PageController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: Row(children: <Widget>[
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.close_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }),
+            ),
+            const Expanded(child: Text("")),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+              child: Builder(
+                builder: (context) => IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_rounded),
+                    splashRadius: 20,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TenthRoute()),
+                      );
+                    }),
+              ),
+            ),
+            Builder(
+              builder: (context) => IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios_rounded),
+                  splashRadius: 20,
+                  onPressed: () {
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  }),
+            ),
+          ])),
+      body: PageView(
+        controller: controller,
+        scrollDirection: Axis.horizontal,
+        children: [
+          EleventhRoutePage1(),
+          // EleventhRoutePage2(),
+        ],
+      ),
+    );
+  }
+}
+
+class EleventhRoutePage1 extends StatelessWidget {
+  EleventhRoutePage1({Key? key}) : super(key: key);
+
+  List carousel1 = [
+    CarouselLetter("Ba", "consonant+a/Ba.m4a"),
+    CarouselLetter("Ca", "consonant+a/Ca.m4a"),
+    CarouselLetter("Da", "consonant+a/Da.m4a"),
+    CarouselLetter("Fa", "consonant+a/Fa.m4a"),
+    CarouselLetter("Ga", "consonant+a/Ga.m4a"),
+    CarouselLetter("Ja", "consonant+a/Ja.m4a"),
+    CarouselLetter("Ka", "consonant+a/Ka.m4a"),
+    CarouselLetter("La", "consonant+a/La.m4a"),
+    CarouselLetter("Ma", "consonant+a/Ma.m4a"),
+    CarouselLetter("Na", "consonant+a/Na.m4a"),
+    CarouselLetter("Pa", "consonant+a/Pa.m4a"),
+    CarouselLetter("Ra", "consonant+a/Ra.m4a"),
+    CarouselLetter("Sa", "consonant+a/Sa.m4a"),
+    CarouselLetter("Ta", "consonant+a/Ta.m4a"),
+    CarouselLetter("Va", "consonant+a/Va.m4a"),
+    CarouselLetter("Wa", "consonant+a/Wa.m4a"),
+    CarouselLetter("Xa", "consonant+a/Xa.m4a"),
+    CarouselLetter("Za", "consonant+a/Za.m4a"),
+  ];
+  List carousel2 = [
+    CarouselLetter("Bi", "consonant+i/Bi.m4a"),
+    CarouselLetter("Ci", "consonant+i/Ci.m4a"),
+    CarouselLetter("Di", "consonant+i/Di.m4a"),
+    CarouselLetter("Fi", "consonant+i/Fi.m4a"),
+    CarouselLetter("Gi", "consonant+i/Gi.m4a"),
+    CarouselLetter("Ji", "consonant+i/Ji.m4a"),
+    CarouselLetter("Ki", "consonant+i/Ki.m4a"),
+    CarouselLetter("Li", "consonant+i/Li.m4a"),
+    CarouselLetter("Mi", "consonant+i/Mi.m4a"),
+    CarouselLetter("Ni", "consonant+i/Ni.m4a"),
+    CarouselLetter("Pi", "consonant+i/Pi.m4a"),
+    CarouselLetter("Ri", "consonant+i/Ri.m4a"),
+    CarouselLetter("Si", "consonant+i/Si.m4a"),
+    CarouselLetter("Ti", "consonant+i/Ti.m4a"),
+    CarouselLetter("Vi", "consonant+i/Vi.m4a"),
+    CarouselLetter("Wi", "consonant+i/Wi.m4a"),
+    CarouselLetter("Xi", "consonant+i/Xi.m4a"),
+    CarouselLetter("Zi", "consonant+i/Zi.m4a"),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 15, 12, 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Vowels A and I",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          const Text(""),
+          const Text(
+              "In order to pronounce the consonant sounds, we will place them before the vowel sounds A and I (this will also increase your awareness of the French sounds for the letters “a” and “i”):",
+              style: TextStyle(fontSize: 18)),
+          const Text(""),
+          const Text(
+            "Vowel A with Consonants",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
+          const SizedBox(height: 12),
+          CarouselSlider.builder(
+            // To be parsed out
+            options: CarouselOptions(
+                height: 154, pageSnapping: false, viewportFraction: .42),
+            itemCount: carousel1.length,
+            itemBuilder: (context, index, realIndex) {
+              return buildLetter(carousel1[index], index);
+            },
+          ),
+          const Text(
+            "Vowel I with Consonants",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          ),
+          const SizedBox(height: 12),
+          CarouselSlider.builder(
+            // To be parsed out
+            options: CarouselOptions(
+                height: 154, pageSnapping: false, viewportFraction: .42),
+            itemCount: carousel2.length,
+            itemBuilder: (context, index, realIndex) {
+              return buildLetter(carousel2[index], index);
+            },
+          ),
+          const SizedBox(height: 18),
+          const Expanded(
+            child: Text(
+                "", // To Do: Make page to record letters, right not cannot swipe left
+                style: TextStyle(fontSize: 18)),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xff4E4E4E),
+                size: 10,),
+              SizedBox(width: 12),
+              Icon(Icons.fiber_manual_record_rounded,
+                color: Color(0xffC4C4C4),
+                size: 10,),
+            ],
+          ),
+          const SizedBox(height: 15,)
+        ],
+      ),
+    );
+  }
+
+  Widget buildLetter(carousel, int index) => Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      width: double.infinity,
+      child: carousel,
+    ),
+  );
 }

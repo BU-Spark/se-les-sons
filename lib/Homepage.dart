@@ -186,28 +186,7 @@ class Homepage extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [
-            HomeTabs(),
-            TablOfContents(),
-            Center(
-              child: Container(
-                width: 28,
-                height: 28,
-                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 4),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    border: Border.all(width: 2, color: Colors.black)),
-                child: Container(
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                    color: Color(0xffff7b66),
-                  ),
-                ),
-              ),
-            ),
-          ],
+          children: [HomeTabs(), TablOfContents(), const Icon(Icons.person)],
         ),
       ),
     );
@@ -348,14 +327,31 @@ class Part_1 extends StatelessWidget {
                       );
                     }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Vowels", () {}),
+                    CustomCard(
+                        Icons.record_voice_over_rounded, "Practicing Vowels",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => NinthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
                     CustomCard(Icons.record_voice_over_rounded,
-                        "Practicing Consonants", () {}),
+                        "Practicing Consonants", () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => TenthRoute()),
+                      );
+                    }),
                     const SizedBox(height: 9),
-                    CustomCard(Icons.record_voice_over_rounded, "Vowel A and I",
-                        () {}),
+                    CustomCard(Icons.record_voice_over_rounded, "Vowels A and I",
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EleventhRoute()),
+                      );
+                    }),
                   ],
                 ),
               ),
@@ -377,6 +373,7 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 8,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       color: const Color(0xff006cff),
       child: InkWell(
