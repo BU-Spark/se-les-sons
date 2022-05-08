@@ -14,6 +14,11 @@ We are using Dart for our front-end. We chose it because it is a very intuitive 
 
 Install flutter following this [guide](https://docs.flutter.dev/get-started/install). You will need to install Xcode, and cocoapods to set up the IOS simulator. The IOS simulator will only work on MacOS. To set up android you will need to install android studio, and android tool chain. All of the dependencies are explained in the guide.
 
+To download all of the dependencies run
+```
+flutter pub get
+```
+
 Then go to our [github](https://github.com/BU-Spark/se-les-sons/tree/dev) and fork the repository.
 
 Then clone the repo. Open your terminal, go to the path where you want to have your repo on your local machine.
@@ -22,16 +27,11 @@ git clone <ssh-url>
 ```
 Enter the clone repo, cd se-les-sons
 
-To download all of the dependencies run
-```
-flutter pub get
-```
-
 To run `flutter run`
 
-
-
 ## Contributing
+
+Follow steps layed out in [Install and Run](#install-and-run) but before running continue here.
 
 Check remote `git remote -v`
 
