@@ -17,9 +17,7 @@ class ThirdRoutePage2 extends StatefulWidget {
 }
 
 class _ThirdRoutePage2State extends State<ThirdRoutePage2> {
-  /**
-   * RECORDER
-   */
+  //RECORDER
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
 
@@ -259,9 +257,7 @@ class FifthRoutePage1 extends StatefulWidget {
 }
 
 class _FifthRoutePage1State extends State<FifthRoutePage1> {
-  /**
-   * RECORDER
-   */
+  //RECORDER
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
 
@@ -494,9 +490,7 @@ class SixthRoutePage1 extends StatefulWidget {
 }
 
 class _SixthRoutePage1State extends State<SixthRoutePage1> {
-  /**
-   * RECORDER
-   */
+  //RECORDER
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
 
@@ -577,9 +571,7 @@ class _SixthRoutePage1State extends State<SixthRoutePage1> {
     setAudio(path);
   }
 
-  /**
-   * AUDIOPLAYER
-   */
+  //RECORDER
   final audioPlayer = Audio.AudioPlayer();
   bool isPlaying = false;
   Duration duration = Duration.zero;
@@ -643,16 +635,6 @@ class _SixthRoutePage1State extends State<SixthRoutePage1> {
                   ),
                 ],
               ),
-              // StreamBuilder<RecordingDisposition>(
-              //   stream: recorder.onProgress,
-              //   builder: (context, snapshot) {
-              //     final duration = snapshot.hasData
-              //         ? snapshot.data!.duration
-              //         : Duration.zero;
-              //
-              //     return Text('${duration.inSeconds} s', style: const TextStyle(color: Colors.black26),);
-              //   }
-              // ),
               const Expanded(child: Text("")),
               Center(
                 child: ElevatedButton(
@@ -741,9 +723,7 @@ class NinthRoutePage2 extends StatefulWidget {
 }
 
 class _NinthRoutePage2State extends State<NinthRoutePage2> {
-  /**
-   * RECORDER
-   */
+  //RECORDER
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
 
@@ -983,9 +963,7 @@ class TenthRoutePage2 extends StatefulWidget {
 }
 
 class _TenthRoutePage2State extends State<TenthRoutePage2> {
-  /**
-   * RECORDER
-   */
+  //RECORDER
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
 
@@ -1066,9 +1044,7 @@ class _TenthRoutePage2State extends State<TenthRoutePage2> {
     setAudio(path);
   }
 
-  /**
-   * AUDIOPLAYER
-   */
+  //RECORDER
   final audioPlayer = Audio.AudioPlayer();
   bool isPlaying = false;
   Duration duration = Duration.zero;
@@ -1225,9 +1201,7 @@ class EleventhRoutePage2 extends StatefulWidget {
 }
 
 class _EleventhRoutePage2State extends State<EleventhRoutePage2> {
-  /**
-   * RECORDER
-   */
+  //RECORDER
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
 
@@ -1308,9 +1282,7 @@ class _EleventhRoutePage2State extends State<EleventhRoutePage2> {
     setAudio(path);
   }
 
-  /**
-   * AUDIOPLAYER
-   */
+  //RECORDER
   final audioPlayer = Audio.AudioPlayer();
   bool isPlaying = false;
   Duration duration = Duration.zero;
