@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:myapp/carousel.dart';
 
-// This file contains the lessons that fall under part 1 (we are in the process of buiding part 1 so some parts to not lead anywhere yet)
+// This file contains the lessons that fall under part 1
 
 class FirstRoute extends StatelessWidget {
   const FirstRoute({Key? key}) : super(key: key);
