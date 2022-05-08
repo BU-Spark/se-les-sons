@@ -112,25 +112,24 @@ Run `flutter install`.
 
 As of right now our greatest security concern is authentication/authorization. However since the log in has not yet been implemented security features have not been added as well.
 
-### Bugs and Errors
+## Bugs and Errors
 
 List of known bugs and erorrs:
 
-1. Table of contents: Under the table of contents all of the pull downs for the different parts have part 1's pages instead of being empty (since only part one is implemented). Future teams will add the other parts pages and will update the table of contents to have the pull downs for those parts go to the pages for that part.
-2. Recording pages: On the recording pages the user is only able to have one recording at a time, they can record multiple times but it will only save the newest recording. And it only save the recording while they are on that page once they leave the page it doesn't save it anoymore. All of this is becuase we do not have a database yet.
+1. Table of contents: Under the table of contents all of the pull downs for the different parts have part 1's pages instead of being empty (since only part one is implemented). Future teams will add the other parts pages and will update the table of contents to have the pull downs for those parts go to the pages for that part. See more [here](https://github.com/BU-Spark/se-les-sons/issues/22).
+2. Recording pages: On the recording pages the user is only able to have one recording at a time, they can record multiple times but it will only save the newest recording. And it only save the recording while they are on that page once they leave the page it doesn't save it anymore. All of this is becuase we do not have a database yet. See more [here](https://github.com/BU-Spark/se-les-sons/issues/23).
 
 
-### Work for the Future
+## Work for the Future
 List of known work that need to be done for future teams:
 
-1. Pofile needs to be implemented. Look at [figma](https://www.figma.com/file/qBaNdXu1HLB9GjImX2dDXS/LS%3A-Wireframes?node-id=206%3A518) for how to implement.
+1. Profile needs to be implemented. Look at [figma](https://www.figma.com/file/qBaNdXu1HLB9GjImX2dDXS/LS%3A-Wireframes?node-id=206%3A518) for how to implement.
 2. Implement the other parts of the app. As of now (5/7/2022) only part one was created in figma.
 3. Update table of contents (look at bugs and errors for details).
 4. Create database and CDN (look at Technical Architecture for more information).
-5. Create a static box for recording button (look at figma on any recording page).
-6. Allow for multiple recordings on recording pages and ability to save recordings (see database).
-7. Implement exercise 7 "Spelling French Words" as of now (5/7/2022) this exercise is not created in figma.
-8. Use a "resource file" or "string file" instead of embedding the text directly into the code. For more information look at this [issue](https://github.com/BU-Spark/se-les-sons/issues/14)
-9. Use loops in the code espicially with the "Container" in Homepage.dart and "carousel" in lessons_1.dart. For more information look at this [issue](https://github.com/BU-Spark/se-les-sons/issues/13)
+5. Allow for multiple recordings on recording pages and ability to save recordings (see database).
+6. Implement exercise 7 "Spelling French Words" as of now (5/7/2022) this exercise is not created in figma.
+7. Use a "resource file" or "string file" instead of embedding the text directly into the code. For more information look at this [issue](https://github.com/BU-Spark/se-les-sons/issues/14).
+8. Use loops in the code espicially with the "Container" in Homepage.dart and "carousel" in lessons_1.dart. For more information look at this [issue](https://github.com/BU-Spark/se-les-sons/issues/13).
  
 
