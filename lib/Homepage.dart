@@ -1,7 +1,61 @@
 import 'package:flutter/material.dart';
 import "package:myapp/lessons_1.dart";
-import "package:myapp/lessons_1_ recording_parts.dart";
 import "package:myapp/Table_of_Contents.dart";
+
+class Homepage extends StatelessWidget {
+  const Homepage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          shape:
+          const Border(bottom: BorderSide(color: Color(0xffc7c7cc))),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text(
+                "The Sound of French",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+              Text("By: Alain Pacowski",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            ],
+          ),
+          bottom: const TabBar(
+            indicatorWeight: 3,
+            labelStyle: TextStyle(
+                fontFamily: 'Arial', fontWeight: FontWeight.w400, fontSize: 15),
+            tabs: [
+              Tab(
+                  child: Text("Home",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black))),
+              Tab(
+                  child: Text("Table of\nContents", // Nothing here yet
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black))),
+              Tab(
+                  child: Text("Profile", // Nothing here yet
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black))),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          //TODO: Implement the last tab, the Profile page
+          children: [HomeTabs(), TableOfContents(), const Icon(Icons.person)],
+        ),
+      ),
+    );
+  }
+}
 
 /*The contents of the first tab of Homepage, 'Home'. The reason it is Stateful
  * is to create a custom indicator for the scrollable parts tab, as well as when
@@ -47,6 +101,7 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
             ),
             onTap: (index) => setState(() => _selectedIndex = index),
             tabs: [
+              //TODO: Find a way to loop this code to minimize amount of code needed
               Container(
                 decoration: HomeTab(_selectedIndex, 0),
                 width: MediaQuery.of(context).size.width / 3,
@@ -113,6 +168,7 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
       ),
       body: TabBarView(controller: _controller, children: [
         //Only part 1 has been implemented but the other parts can be implemented the same way
+        //TODO: Implement the other parts
         Part_1(),
         const Icon(Icons.book),
         const Icon(Icons.book),
@@ -127,7 +183,7 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
     );
   }
 
-  //Custom tab look for Parts 1-10 tabs, changes color depending if it is clicked or not
+  //Custom tab look for Parts 1-10 tabs, changes color from blue to grey depending if it is clicked or not
   HomeTab(int currentTab, int tab) {
     return ShapeDecoration(
         shape: RoundedRectangleBorder(
@@ -139,60 +195,7 @@ class _HomeTabsState extends State<HomeTabs> with TickerProviderStateMixin {
   }
 }
 
-class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          shape:
-              const Border(bottom: const BorderSide(color: Color(0xffc7c7cc))),
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text(
-                "The Sound of French",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                ),
-              ),
-              Text("By: Alain Pacowski",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-            ],
-          ),
-          bottom: const TabBar(
-            indicatorWeight: 3,
-            labelStyle: TextStyle(
-                fontFamily: 'Arial', fontWeight: FontWeight.w400, fontSize: 15),
-            tabs: [
-              Tab(
-                  child: Text("Home",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black))),
-              Tab(
-                  child: Text("Table of\nContents", // Nothing here yet
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black))),
-              Tab(
-                  child: Text("Profile", // Nothing here yet
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black))),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [HomeTabs(), TablOfContents(), const Icon(Icons.person)],
-        ),
-      ),
-    );
-  }
-}
-
+//This is the contents of the tab 'Part 1' in the 'Home' tab of the Homepage
 class Part_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -363,6 +366,10 @@ class Part_1 extends StatelessWidget {
   }
 }
 
+//Custom card that redirects users to that lesson in each part
+/*Can be revised so that the onTap function already has the Navigator.push(..) stuff and all that needs to be passed in is
+  the route, e.g. FirstRoute().
+*/
 class CustomCard extends StatelessWidget {
   IconData icon;
   String text;
