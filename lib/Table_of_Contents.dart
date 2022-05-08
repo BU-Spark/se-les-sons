@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import "package:myapp/lessons_1.dart";
 import "package:myapp/Homepage.dart";
-import "package:myapp/lessons_1_ recording_parts.dart";
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 
-class TablOfContents extends StatefulWidget {
+/*This tab is stateful in order to keep track of which cards have been expanded
+*/
+
+class TableOfContents extends StatefulWidget {
   @override
   _TableOfContentsState createState() => _TableOfContentsState();
 }
 
-class _TableOfContentsState extends State<TablOfContents> {
+class _TableOfContentsState extends State<TableOfContents> {
+
+  /* As of right now, every part in Table of Contents when expanded returns this specific card's list of routes.
+  TODO: Make it so that you can specific what you want for the contents in this card for each part.
+  This utilizes the CustomCard from Homepage.
+  It might also be a good idea to create a separate file that contains all these custom cards for better organization
+  and easier access across multiple files
+  TODO: Also find a way to loop this code to create these cards to minimize code needed
+   */
   Card createCard(BuildContext context) {
     return Card(
       elevation: 8,
@@ -27,14 +37,12 @@ class _TableOfContentsState extends State<TablOfContents> {
                 MaterialPageRoute(builder: (context) => const FirstRoute()),
               );
             }),
-            const SizedBox(height: 9),
             CustomCard(Icons.book, "The French Name of each Letter", () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SecondRoute()),
               );
             }),
-            const SizedBox(height: 9),
             CustomCard(
                 // In middle of building out this section
                 Icons.record_voice_over_rounded,
@@ -92,7 +100,7 @@ class _TableOfContentsState extends State<TablOfContents> {
             CustomCard(
               // In middle of building out this section
                 Icons.record_voice_over_rounded,
-                "Vowels and Consonants", () {
+                "Practicing Vowels", () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => NinthRoute()),
@@ -101,7 +109,7 @@ class _TableOfContentsState extends State<TablOfContents> {
             CustomCard(
               // In middle of building out this section
                 Icons.record_voice_over_rounded,
-                "Vowels and Consonants", () {
+                "Practicing Consonants", () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => TenthRoute()),
@@ -110,7 +118,7 @@ class _TableOfContentsState extends State<TablOfContents> {
             CustomCard(
               // In middle of building out this section
                 Icons.record_voice_over_rounded,
-                "Vowels and Consonants", () {
+                "Vowels A and I", () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => EleventhRoute()),
@@ -125,6 +133,7 @@ class _TableOfContentsState extends State<TablOfContents> {
   final GlobalKey<ExpansionTileCardState> cardA = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardB = new GlobalKey();
 
+  //List to keep track of whether or not the card is expanded or not
   List<bool> isExpanded = [
     true,
     true,
@@ -145,9 +154,10 @@ class _TableOfContentsState extends State<TablOfContents> {
         padding: const EdgeInsets.fromLTRB(8, 8, 8, 56),
         child: Column(
           children: [
+            //ExpansionTileCard has been specifically modified to fit the way we want it to look, that is why its folder is in the se-les-sons folder
             ExpansionTileCard(
               onExpansionChanged: (expanded) =>
-                  setState(() => isExpanded[0] = expanded),
+                  setState(() => isExpanded[0] = !expanded),
               baseColor: Colors.transparent,
               expandedColor: Colors.transparent,
               expandedTextColor: Colors.black,
@@ -344,6 +354,11 @@ class _TableOfContentsState extends State<TablOfContents> {
   }
 }
 
+
+/*Custom card for 'Table of Contents' tab in the Homepage e.g. 'Part 1: Learning the French Alphabet'
+  Depending whether or not true or false is passed in, it changes the right-most icon to reflect
+  whether the contents of that card is open
+ */
 class CustomTableOfContentsCard extends StatelessWidget {
   String text;
   bool icon;
@@ -382,44 +397,3 @@ class CustomTableOfContentsCard extends StatelessWidget {
     );
   }
 }
-
-// Card createCard() {
-//   return Card(
-//     elevation: 8,
-//     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-//     color: const Color(0xfff5f5f5),
-//     child: Padding(
-//       padding: const EdgeInsets.fromLTRB(11, 12, 11, 12),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.start,
-//         children: [
-//           CustomCard(
-//               Icons.book,
-//               "An Introduction to the French Pronunciation", () {
-//             Navigator.push(
-//               context,
-//               MaterialPageRoute(builder: (context) => const FirstRoute()),
-//             );
-//           }),
-//           const SizedBox(height: 9),
-//           CustomCard(Icons.book, "The French Name of each Letter", () {
-//             Navigator.push(
-//               context,
-//               MaterialPageRoute(builder: (context) => const SecondRoute()),
-//             );
-//           }),
-//           const SizedBox(height: 9),
-//           CustomCard(
-//             // In middle of building out this section
-//               Icons.record_voice_over_rounded,
-//               "Practicing the French Alphabet", () {
-//             Navigator.push(
-//               context,
-//               MaterialPageRoute(builder: (context) => ThirdRoute()),
-//             );
-//           }),
-//         ],
-//       ),
-//     ),
-//   );
-// }
